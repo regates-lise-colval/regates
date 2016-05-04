@@ -1,0 +1,15 @@
+lise\colval\regates\bll\model\competition\Event.class
+lise\colval\regates\dal\Repository.class
+lise\colval\regates\Api.class
+lise\colval\regates\bll\control\AllEventsController.class
+lise\colval\regates\dal\dao\IDAO.class
+lise\colval\regates\dal\dao\DataBaseDAO.class
+lise\colval\regates\wsl\EventService.class
+lise\colval\regates\bll\model\competition\Race.class
+lise\colval\regates\dal\dao\SQL_DAO.class
+lise\colval\regates\bll\model\participant\Driver.class
+lise\colval\regates\dal\dto\ShipDTO.class
+lise\colval\regates\wsl\ShipService.class
+lise\colval\regates\bll\model\competition\Contest.class
+lise\colval\regates\bll\control\ProfileShipController.class
+lise\colval\regates\bll\model\participant\Ship.class
