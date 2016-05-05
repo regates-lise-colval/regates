@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* regates
+web: java %JAVA_OPTS% -cp target/classes:target/dependency/* regates
