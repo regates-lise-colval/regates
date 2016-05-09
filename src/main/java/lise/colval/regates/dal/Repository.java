@@ -29,6 +29,4 @@ public class Repository {
         }
         return db_dao;
     }
-    
-   
 }

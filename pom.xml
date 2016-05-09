@@ -17,6 +17,11 @@
     
     <dependencies>
         <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>0.7.5</version>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.moxy</artifactId>
             <version>2.5.0</version>
@@ -33,6 +38,12 @@
             <artifactId>jetty-server</artifactId>
             <version>9.2.3.v20140905</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat</artifactId>
+            <version>8.0.30</version>
+            <type>zip</type>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -54,7 +65,8 @@
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
-            <version>${jersey.version}</version>
+            <version>2.7</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>

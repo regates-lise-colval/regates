@@ -23,13 +23,6 @@ public class Event {
     
     public Event() {}
     
-    public Event(int id, String city, String category, String img) {
-        this.id = id;
-        this.city = city;
-        this.category = category;
-        this.img = img;
-    }
-    
     public Event(int id, String city, String category, String date, String img) {
         this.id = id;
         this.city = city;

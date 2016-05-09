@@ -10,5 +10,7 @@ package lise.colval.regates.bll.model.competition;
  * @author Vincent Laude
  */
 public class Contest {
+
+    
     
 }
