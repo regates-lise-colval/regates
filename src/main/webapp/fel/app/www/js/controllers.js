@@ -10,7 +10,7 @@ angular.module('starter.controllers', [])
 
   $http({
   method: 'GET',
-  url: 'http://localhost:8080/regates/events'
+  url: 'http://localhost:8080/regates/webresources/events'
   }).then(function successCallback(response) {
     $scope.events = response.data;
     console.log(response.data[0]);
