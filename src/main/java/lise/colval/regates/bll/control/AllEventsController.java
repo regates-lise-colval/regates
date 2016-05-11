@@ -16,7 +16,12 @@ import lise.colval.regates.dal.Repository;
  */
 public class AllEventsController {
     
+     public Event findEventById(int id) {
+        return Repository.getInstance().findEventById(id);
+    }
+    
     public List<Event> getAllEvents() {
         return Repository.getInstance().getAllEvents();
     }  
+    
 }

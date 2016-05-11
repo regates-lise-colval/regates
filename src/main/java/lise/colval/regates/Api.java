@@ -12,7 +12,7 @@ import org.glassfish.jersey.server.ResourceConfig;
  *
  * @author Vincent Laude
  */
-@ApplicationPath("/")
+@ApplicationPath("/webresources")
 public class Api extends ResourceConfig {
     public Api() {
         packages("lise.colval.regates.bll;lise.colval.regates.dal;lise.colval.regates.wsl");

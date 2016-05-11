@@ -9,8 +9,9 @@ import java.util.List;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
 import lise.colval.regates.bll.model.participant.Ship;
-import lise.colval.regates.dal.dto.ContestDTO;
-import lise.colval.regates.dal.dto.ShipDTO;
+import lise.colval.regates.dal.dto.Contest_DTO;
+import lise.colval.regates.dal.dto.Event_DTO;
+import lise.colval.regates.dal.dto.Ship_DTO;
 
 /**
  *
@@ -18,13 +19,21 @@ import lise.colval.regates.dal.dto.ShipDTO;
  */
 public interface I_DAO {
     
+    // ------ SHIP ----- //
     public abstract Ship findShipById(int id);
     public abstract List<Ship> getAllShips();
+    public abstract Ship_DTO createShipDTO(Ship ship);
+    public abstract Ship createBeanShip(Ship_DTO shipDTO);
     
+    // ----- EVENT ----- //
+    public abstract Event findEventById(int id);
     public abstract List<Event> getAllEvents();
+    public abstract Event_DTO createEventDTO(Event event);
+    public abstract Event createBeanEvent(Event_DTO eventDTO);
     
-    public abstract ShipDTO createShipDTO(Ship ship);
-    public abstract Ship createBeanShip(ShipDTO shipDTO);
-
-    public ContestDTO createContestDTO(Contest contest);
+    // ----- CONTEST ----- //
+    public abstract Contest findContestById(int contestId);
+    public abstract List<Contest> getAllContests();
+    public abstract Contest_DTO createContestDTO(Contest contest);
+    
 }

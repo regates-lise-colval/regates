@@ -9,6 +9,6 @@ package lise.colval.regates.dal.dto;
  *
  * @author Vincent Laude
  */
-public class ContestDTO {
+public class Contest_DTO {
     
 }

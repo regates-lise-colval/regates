@@ -5,6 +5,7 @@
  */
 package lise.colval.regates.bll.model.competition;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,14 +18,27 @@ public class Contest {
     private int year;
     private String category;
     private String title;
+    private String img;
     
-    //private List<Event> events;
+    private List<Event> events;
     
-    public Contest(int id, int year, String category, String title) {
+    public Contest() {}
+    
+    public Contest(int id, int year, String category, String title, String img) {
         this.id = id;
         this.year = year;
         this.category = category;
         this.title = title;
+        this.img = img;
+    }
+    
+    public Contest(int id, int year, String category, String title, String img, List<Event> events) {
+        this.id = id;
+        this.year = year;
+        this.category = category;
+        this.title = title;
+        this.img = img;
+        this.events = new ArrayList<>(events);
     }
 
     public int getId() {
@@ -57,6 +71,31 @@ public class Contest {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+    
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
+    
+    public void addEvent(Event event) {
+        events.add(event);
+    }
+    
+    public void rmEvent(Event event) {
+        events.remove(event);
     }
     
     @Override

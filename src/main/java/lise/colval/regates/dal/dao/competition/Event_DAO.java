@@ -12,8 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
+import lise.colval.regates.dal.Repository;
 import lise.colval.regates.dal.dao.SQL_DAO;
+import lise.colval.regates.dal.dto.Event_DTO;
 
 /**
  *
@@ -26,8 +29,40 @@ public class Event_DAO extends SQL_DAO {
     }
     
     @Override
+    public Event findEventById(int id) {
+        
+        Event event = new Event();
+        Statement stmt = null;
+        
+        try {
+            
+            stmt = connect().createStatement();
+            String request = "SELECT * FROM EVENT WHERE ID = " + id;
+            ResultSet rs = stmt.executeQuery(request);
+            
+            String city = rs.getString("city");
+            String category = rs.getString("category");
+            String date = rs.getString("date");
+            String img = rs.getString("img");
+            int contestId = rs.getInt("contestid");
+                
+            Contest contest = Repository.getInstance().findContestById(contestId);
+                
+            event = new Event(id, city, category, date, img, contest);
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        closeConnection();
+        
+        return event;
+    }
+    
+    @Override
     public List<Event> getAllEvents() {
-       List<Event> events;
+        List<Event> events;
         events = new ArrayList<>();
         
         Statement stmt = null;
@@ -44,8 +79,11 @@ public class Event_DAO extends SQL_DAO {
                 String category = rs.getString("category");
                 String date = rs.getString("date");
                 String img = rs.getString("img");
+                int contestId = rs.getInt("contestid");
                 
-                Event event = new Event(id, city, category, date, img);
+                Contest contest = Repository.getInstance().findContestById(contestId);
+                
+                Event event = new Event(id, city, category, date, img, contest);
                 events.add(event);
             }
             
@@ -58,5 +96,34 @@ public class Event_DAO extends SQL_DAO {
         
         closeConnection();
         return events;
+    }
+    
+    @Override
+    public Event_DTO createEventDTO(Event event) {
+        Event_DTO eventDTO = new Event_DTO();
+        
+        eventDTO.setId(event.getId());
+        eventDTO.setCity(event.getCity());
+        eventDTO.setCategory(event.getCategory());
+        eventDTO.setDate(event.getDate());
+        eventDTO.setImg(event.getImg());
+        eventDTO.setContestId(event.getContest().getId());
+        
+        return eventDTO;
+    }
+    
+    @Override
+    public Event createBeanEvent(Event_DTO eventDTO) {
+        Event event = new Event();
+        
+        event.setId(eventDTO.getId());
+        event.setCity(eventDTO.getCity());
+        event.setCategory(eventDTO.getCategory());
+        event.setDate(eventDTO.getDate());
+        event.setImg(eventDTO.getImg());
+        Contest contest = Repository.getInstance().findContestById(eventDTO.getContestId());
+        event.setContest(contest);
+        
+        return event;
     }
 }

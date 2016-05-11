@@ -11,8 +11,9 @@ import java.util.List;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
 import lise.colval.regates.bll.model.participant.Ship;
-import lise.colval.regates.dal.dto.ContestDTO;
-import lise.colval.regates.dal.dto.ShipDTO;
+import lise.colval.regates.dal.dto.Contest_DTO;
+import lise.colval.regates.dal.dto.Event_DTO;
+import lise.colval.regates.dal.dto.Ship_DTO;
 
 /**
  *
@@ -23,6 +24,8 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     public SQL_DAO(String db_url, String db_driver, String db_user, String db_password) {
         super(db_url, db_driver, db_user, db_password);
     }
+    
+    // ----- SHIP ----- //
 
     @Override
     public Ship findShipById(int tag) {
@@ -35,22 +38,51 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     }
 
     @Override
-    public ShipDTO createShipDTO(Ship ship) {
+    public Ship_DTO createShipDTO(Ship ship) {
         return new Ship_DAO(db_url, db_driver, db_user, db_password).createShipDTO(ship);
     }
 
     @Override
-    public Ship createBeanShip(ShipDTO shipDTO) {
+    public Ship createBeanShip(Ship_DTO shipDTO) {
         return new Ship_DAO(db_url, db_driver, db_user, db_password).createBeanShip(shipDTO);
     }
 
+    // ----- EVENT ----- //
+    
+    @Override
+    public Event findEventById(int id) {
+       return new Event_DAO(db_url, db_driver, db_user, db_password).findEventById(id);
+    }
+    
     @Override
     public List<Event> getAllEvents() {
        return new Event_DAO(db_url, db_driver, db_user, db_password).getAllEvents();
     }
-
+    
     @Override
-    public ContestDTO createContestDTO(Contest contest) {
-       return new Contest_DAO().createContestDTO(contest);
+    public Event_DTO createEventDTO(Event event) {
+        return new Event_DAO(db_url, db_driver, db_user, db_password).createEventDTO(event);
     }
+    @Override
+    public Event createBeanEvent(Event_DTO eventDTO) {
+        return new Event_DAO(db_url, db_driver, db_user, db_password).createBeanEvent(eventDTO);
+    }
+    
+    // ----- CONTEST ----- // 
+    
+    @Override
+    public Contest findContestById(int id) {
+        return new Contest_DAO(db_url, db_driver, db_user, db_password).findContestById(id);
+    }
+    
+    @Override
+    public List<Contest> getAllContests() {
+        return new Contest_DAO(db_url, db_driver, db_user, db_password).getAllContests();
+    }
+    
+    @Override
+    public Contest_DTO createContestDTO(Contest contest) {
+        return new Contest_DAO(db_url, db_driver, db_user, db_password).createContestDTO(contest);
+    }    
+
 }

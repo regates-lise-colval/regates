@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import lise.colval.regates.bll.control.AllContestsController;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.dal.Repository;
-import lise.colval.regates.dal.dto.ContestDTO;
+import lise.colval.regates.dal.dto.Contest_DTO;
 
 /**
  *
@@ -34,9 +34,9 @@ public class ContestService {
     }
     
     @GET
-    public List<ContestDTO> getAllShips() {
+    public List<Contest_DTO> getAllShips() {
         List<Contest> contests = new AllContestsController().getAllContests();
-        List<ContestDTO> contestsDTO = new ArrayList<>();
+        List<Contest_DTO> contestsDTO = new ArrayList<>();
         for(Contest contest : contests) {
             contestsDTO.add(Repository.getInstance().createContestDTO(contest));
         }

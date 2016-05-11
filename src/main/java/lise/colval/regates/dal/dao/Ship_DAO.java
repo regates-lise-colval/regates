@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.bll.model.participant.Ship;
-import lise.colval.regates.dal.dto.ShipDTO;
+import lise.colval.regates.dal.dto.Ship_DTO;
 
 /**
  *
@@ -61,8 +61,8 @@ public class Ship_DAO extends SQL_DAO {
     }
     
     @Override
-    public ShipDTO createShipDTO(Ship ship) {
-        ShipDTO shipDTO = new ShipDTO();
+    public Ship_DTO createShipDTO(Ship ship) {
+        Ship_DTO shipDTO = new Ship_DTO();
         
         shipDTO.setId(ship.getId());
         shipDTO.setTag(ship.getTag());
@@ -73,7 +73,7 @@ public class Ship_DAO extends SQL_DAO {
     }
 
     @Override
-    public Ship createBeanShip(ShipDTO shipDTO) {
+    public Ship createBeanShip(Ship_DTO shipDTO) {
         Ship ship = new Ship();
         
         ship.setId(shipDTO.getId());

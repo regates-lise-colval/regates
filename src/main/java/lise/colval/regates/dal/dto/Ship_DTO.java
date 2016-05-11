@@ -9,14 +9,14 @@ package lise.colval.regates.dal.dto;
  *
  * @author Vincent Laude
  */
-public class ShipDTO {
+public class Ship_DTO {
     
     private int id;
     private int tag;
     private String category;
     private String mainDriver;
     
-    public ShipDTO() {}
+    public Ship_DTO() {}
 
     public int getId() {
         return id;

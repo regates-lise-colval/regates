@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lise.colval.regates.bll.model.competition;
-
+package lise.colval.regates.dal.dto;
 
 /**
  *
  * @author Vincent Laude
  */
-public class Event {
+public class Event_DTO {
     
     private int id;
     private String city;
@@ -19,26 +18,9 @@ public class Event {
     private String img;
     
     //private List<Race> races;
-    private Contest contest;
+    private int contestId;
     
-    public Event() {}
-    
-    public Event(int id, String city, String category, String date, String img) {
-        this.id = id;
-        this.city = city;
-        this.category = category;
-        this.date = date;
-        this.img = img;
-    }
-    
-    public Event(int id, String city, String category, String date, String img, Contest contest) {
-        this.id = id;
-        this.city = city;
-        this.category = category;
-        this.date = date;
-        this.img = img;
-        this.contest = contest;
-    }
+    public Event_DTO() {} 
 
     public int getId() {
         return id;
@@ -80,16 +62,16 @@ public class Event {
         this.img = img;
     }
 
-    public Contest getContest() {
-        return contest;
+    public int getContestId() {
+        return contestId;
     }
 
-    public void setContest(Contest contest) {
-        this.contest = contest;
+    public void setContestId(int contestId) {
+        this.contestId = contestId;
     }
     
     @Override
     public String toString() {
-        return "Event: " + city + " " + category + " " + date;
+        return "EventDTO: " + id + " " + city + " " + category + " " + date; 
     }
 }

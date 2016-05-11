@@ -7,6 +7,7 @@ package lise.colval.regates.bll.control;
 
 import java.util.List;
 import lise.colval.regates.bll.model.competition.Contest;
+import lise.colval.regates.dal.Repository;
 
 /**
  *
@@ -19,6 +20,6 @@ public class AllContestsController {
     }
 
     public List<Contest> getAllContests() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Repository.getInstance().getAllContests();
     }
 }

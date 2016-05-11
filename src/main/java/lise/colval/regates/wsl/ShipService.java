@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import lise.colval.regates.bll.control.ProfileShipController;
 import lise.colval.regates.bll.model.participant.Ship;
 import lise.colval.regates.dal.Repository;
-import lise.colval.regates.dal.dto.ShipDTO;
+import lise.colval.regates.dal.dto.Ship_DTO;
 
 /**
  *
@@ -34,9 +34,9 @@ public class ShipService {
     }
     
     @GET
-    public List<ShipDTO> getAllShips() {
+    public List<Ship_DTO> getAllShips() {
         List<Ship> ships = new ProfileShipController().getAllShips();
-        List<ShipDTO> shipsDTO = new ArrayList<>();
+        List<Ship_DTO> shipsDTO = new ArrayList<>();
         for(Ship ship : ships) {
             shipsDTO.add(Repository.getInstance().createShipDTO(ship));
         }
