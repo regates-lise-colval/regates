@@ -13,10 +13,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import lise.colval.regates.bll.control.ProfileShipController;
-import lise.colval.regates.bll.model.participant.Ship;
+import lise.colval.regates.bll.control.AllContestsController;
+import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.dal.Repository;
-import lise.colval.regates.dal.dto.ShipDTO;
+import lise.colval.regates.dal.dto.ContestDTO;
 
 /**
  *
@@ -24,22 +24,22 @@ import lise.colval.regates.dal.dto.ShipDTO;
  */
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/ships")
-public class ShipService {
+@Path("/contests")
+public class ContestService {
     
     @GET
     @Path("{/id}")
-    public Ship getShip(@PathParam("id") int id) {
-        return new ProfileShipController().getShip(id);
+    public Contest getContest(@PathParam("id") int id) {
+        return new AllContestsController().getShip(id);
     }
     
     @GET
-    public List<ShipDTO> getAllShips() {
-        List<Ship> ships = new ProfileShipController().getAllShips();
-        List<ShipDTO> shipsDTO = new ArrayList<>();
-        for(Ship ship : ships) {
-            shipsDTO.add(Repository.getInstance().createShipDTO(ship));
+    public List<ContestDTO> getAllShips() {
+        List<Contest> contests = new AllContestsController().getAllContests();
+        List<ContestDTO> contestsDTO = new ArrayList<>();
+        for(Contest contest : contests) {
+            contestsDTO.add(Repository.getInstance().createContestDTO(contest));
         }
-        return shipsDTO;
+        return contestsDTO;
     }
 }

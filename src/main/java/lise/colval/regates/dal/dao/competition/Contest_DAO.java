@@ -3,23 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lise.colval.regates.bll.control;
+package lise.colval.regates.dal.dao.competition;
 
-import java.util.List;
-import lise.colval.regates.bll.model.participant.Ship;
-import lise.colval.regates.dal.Repository;
+import lise.colval.regates.bll.model.competition.Contest;
+import lise.colval.regates.dal.dto.ContestDTO;
 
 /**
  *
  * @author Vincent Laude
  */
-public class ProfileShipController {
+public class Contest_DAO {
 
-    public Ship getShip(int id) {
+    public ContestDTO createContestDTO(Contest contest) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }  
-
-    public List<Ship> getAllShips() {
-        return Repository.getInstance().getAllShips();
     }
 }

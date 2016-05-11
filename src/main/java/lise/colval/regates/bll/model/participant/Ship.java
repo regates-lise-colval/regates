@@ -79,6 +79,7 @@ public class Ship {
     public void setMainDriver(Driver mainDriver) {
         this.mainDriver = mainDriver;
     }
+    
     /*
     public List<Driver> getAlLDrivers() {
         return alLDrivers;
@@ -88,8 +89,9 @@ public class Ship {
         this.alLDrivers = alLDrivers;
     }
     */
+    
     @Override
     public String toString() {
-        return tag + " " + category + " " + mainDriver;
+        return "Ship: " + tag + " " + category + " " + mainDriver;
     }
 }

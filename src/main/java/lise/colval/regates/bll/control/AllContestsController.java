@@ -6,20 +6,19 @@
 package lise.colval.regates.bll.control;
 
 import java.util.List;
-import lise.colval.regates.bll.model.participant.Ship;
-import lise.colval.regates.dal.Repository;
+import lise.colval.regates.bll.model.competition.Contest;
 
 /**
  *
  * @author Vincent Laude
  */
-public class ProfileShipController {
+public class AllContestsController {
 
-    public Ship getShip(int id) {
+    public Contest getShip(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }  
+    }
 
-    public List<Ship> getAllShips() {
-        return Repository.getInstance().getAllShips();
+    public List<Contest> getAllContests() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

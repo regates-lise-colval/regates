@@ -14,11 +14,9 @@ import lise.colval.regates.dal.Repository;
  *
  * @author Vincent Laude
  */
-
 public class AllEventsController {
     
     public List<Event> getAllEvents() {
         return Repository.getInstance().getAllEvents();
-    }
-    
+    }  
 }

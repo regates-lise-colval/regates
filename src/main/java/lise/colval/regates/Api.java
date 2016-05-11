@@ -12,9 +12,11 @@ import org.glassfish.jersey.server.ResourceConfig;
  *
  * @author Vincent Laude
  */
-@ApplicationPath("/webresources/")
+@ApplicationPath("/")
 public class Api extends ResourceConfig {
     public Api() {
         packages("lise.colval.regates.bll;lise.colval.regates.dal;lise.colval.regates.wsl");
+        register(org.glassfish.jersey.filter.LoggingFilter.class);
+        property("jersey.config.beanValidation.enableOutputValidationErrorEntity.server", "true");
     }
 }

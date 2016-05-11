@@ -52,6 +52,6 @@ public class ShipDTO {
   
     @Override
     public String toString() {
-        return tag + " " + category + " " + mainDriver;
+        return "ShipDTO: " + tag + " " + category + " " + mainDriver;
     }
 }

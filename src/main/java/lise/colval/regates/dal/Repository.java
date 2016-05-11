@@ -5,10 +5,8 @@
  */
 package lise.colval.regates.dal;
 
-import java.util.List;
 import javax.inject.Singleton;
-import lise.colval.regates.bll.model.participant.Ship;
-import lise.colval.regates.dal.dao.DataBaseDAO;
+import lise.colval.regates.dal.dao.I_DAO;
 import lise.colval.regates.dal.dao.SQL_DAO;
 
 /**
@@ -18,14 +16,12 @@ import lise.colval.regates.dal.dao.SQL_DAO;
 @Singleton
 public class Repository {
     
-    private static DataBaseDAO db_dao = null;
+    private static I_DAO db_dao = null;
     
-    public static DataBaseDAO getInstance() {
+    public static I_DAO getInstance() {
         
         if(db_dao == null) {
-            
-            db_dao = new SQL_DAO("jdbc:derby://localhost:1527/Test", "test", "test");
-
+            db_dao = new SQL_DAO("jdbc:derby://localhost:1527/Test", "org.apache.derby.jdbc.ClientDriver", "test", "test");
         }
         return db_dao;
     }
