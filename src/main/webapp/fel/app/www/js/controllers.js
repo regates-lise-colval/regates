@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
   });*/
 })
 
-.controller('EventInfoCtrl', function($scope, $stateParams, Events) {
+.controller('EventInfoCtrl', function($scope, $stateParams, Events, Ships) {
   /*
   $http({
   method: 'GET',
@@ -29,6 +29,17 @@ angular.module('starter.controllers', [])
   });
   */
   $scope.event = Events.get($stateParams.eventId);
+  $scope.ships = Ships.all();
+  $scope.remove = function(ships) {
+    Ships.remove(ships);
+  };
+})
+
+.controller('ShipsCtrl', function($scope, Ships) {
+  $scope.ships = Ships.all();
+  $scope.remove = function(ships) {
+    Ships.remove(ships);
+  };
 })
 
 .controller('ContestsCtrl', function($scope, Contests) {

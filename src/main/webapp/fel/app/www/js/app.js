@@ -6,8 +6,6 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
-var events;
-
 angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'contests.services', 'ships.services'])
 
 .run(function($ionicPlatform) {
