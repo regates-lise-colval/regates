@@ -1,0 +1,20 @@
+<ion-view view-title="Events">
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-image" ng-repeat="event in events">
+        <img ng-src="img/{{event.img}}" style="margin-bottom:10px;">
+        <h2>{{event.city + ' - ' + event.category}}</h2>
+        <div class="row" style="margin-bottom:10px;">
+          <a class="col-25 col-offset-0 col-top" nav-direction="back" href="#/tab/events/{{event.id}}">
+            <button class="button button-positive icon-left ion-ios-person">Infos</button>
+          </a>
+        <h2 class="col-50 col-center">{{event.date}}</h2>
+        <button class="button button-positive col-25 col-top icon-right ion-ribbon-b">Score</button>
+      </div>
+      </ion-item>
+    </ion-list>
+
+
+  </ion-content>
+</ion-view>

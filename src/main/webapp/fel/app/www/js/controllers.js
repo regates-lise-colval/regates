@@ -1,21 +1,34 @@
 angular.module('starter.controllers', [])
 
-.controller('AllCtrl', function($scope, $http, Events) {
+.controller('EventsCtrl', function($scope, $http, Events) {
   $scope.events = Events.all();
   $scope.remove = function(event) {
     Events.remove(event);
   };
 
-  $scope.events = {};
+  /*$scope.events = {};
 
   $http({
   method: 'GET',
   url: 'http://localhost:8080/regates/webresources/events'
   }).then(function successCallback(response) {
     $scope.events = response.data;
+  }, function errorCallback(response) {
+  });*/
+})
+
+.controller('EventInfoCtrl', function($scope, $stateParams, Events) {
+  /*
+  $http({
+  method: 'GET',
+  url: 'http://localhost:8080/regates/webresources/events/' + $stateParams.eventId
+  }).then(function successCallback(response) {
+    $scope.event = response.data;
     console.log(response.data[0]);
   }, function errorCallback(response) {
   });
+  */
+  $scope.event = Events.get($stateParams.eventId);
 })
 
 .controller('ContestsCtrl', function($scope, Contests) {
@@ -31,10 +44,6 @@ angular.module('starter.controllers', [])
   $scope.remove = function(contests) {
     Contests.remove(contests);
   };
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
 })
 
 .controller('AccountCtrl', function($scope) {

@@ -8,7 +8,7 @@
 
 var events;
 
-angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'contests.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'contests.services', 'ships.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,7 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'c
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -46,12 +46,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'c
 
   // Each tab has its own nav history stack:
 
-  .state('tab.all', {
-    url: '/all',
+  .state('tab.events', {
+    url: '/events',
     views: {
-      'tab-all': {
-        templateUrl: 'templates/tab-all.html',
-        controller: 'AllCtrl'
+      'tab-events': {
+        templateUrl: 'templates/tab-events.html',
+        controller: 'EventsCtrl'
+      }
+    }
+  })
+
+  .state('tab.event-info', {
+    url: '/events/:eventId',
+    views: {
+      'tab-events': {
+        templateUrl: 'templates/event-info.html',
+        controller: 'EventInfoCtrl'
       }
     }
   })
@@ -65,15 +75,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'c
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
+
 
   .state('tab.account', {
     url: '/account',
@@ -86,6 +88,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'c
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/all');
+  $urlRouterProvider.otherwise('/tab/events');
 
 });
