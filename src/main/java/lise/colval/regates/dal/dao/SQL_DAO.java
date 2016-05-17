@@ -10,9 +10,11 @@ import lise.colval.regates.dal.dao.competition.Contest_DAO;
 import java.util.List;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
+import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.bll.model.participant.Ship;
 import lise.colval.regates.dal.dto.Contest_DTO;
 import lise.colval.regates.dal.dto.Event_DTO;
+import lise.colval.regates.dal.dto.Race_DTO;
 import lise.colval.regates.dal.dto.Ship_DTO;
 
 /**
@@ -84,5 +86,20 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     public Contest_DTO createContestDTO(Contest contest) {
         return new Contest_DAO(db_url, db_driver, db_user, db_password).createContestDTO(contest);
     }    
+
+    @Override
+    public Race findRaceById(int raceId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Race> getAllRaces() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Race_DTO createRaceDTO(Race race) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

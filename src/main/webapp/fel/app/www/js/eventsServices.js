@@ -1,10 +1,22 @@
 angular.module('events.services', [])
 
-.factory('Events', function() {
+.factory('Events', function($http) {
 
+    var events2;
 
+    $http({
+    method: 'GET',
+    url: 'http://localhost:8080/regates/webresources/events'
+    }).then(function successCallback(response) {
 
-    /*
+        events2 = response.data;
+        console.log(events2);
+    }, function errorCallback(response) {
+
+    });
+
+    var events = events2;
+
     var events = [{
       id: 1,
       city: 'Détroit',
@@ -66,7 +78,7 @@ angular.module('events.services', [])
       date: '2016/06/20',
       img: 'stuart.jpg'
     }];
-    */
+
 
     return {
       all: function() {

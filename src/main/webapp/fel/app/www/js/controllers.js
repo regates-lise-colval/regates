@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('EventsCtrl', function($scope, $http, Events) {
 
-  $http({
+  /*$http({
   method: 'GET',
   url: 'http://localhost:8080/regates/webresources/events'
   }).then(function successCallback(response) {
@@ -11,9 +11,11 @@ angular.module('starter.controllers', [])
     $scope.events = Events.events;
 
   }, function errorCallback(response) {
-  });
+  });*/
   //console.log(Events.events);
   //$scope.events = Events.all();
+  console.log(events);
+  $scope.events = Events.all();
   $scope.remove = function(event) {
     Events.remove(event);
   };
