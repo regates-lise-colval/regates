@@ -1,23 +1,25 @@
 angular.module('starter.controllers', [])
 
 .controller('EventsCtrl', function($scope, $http, Events) {
-  $scope.events = Events.all();
-  $scope.remove = function(event) {
-    Events.remove(event);
-  };
-
-  /*$scope.events = {};
 
   $http({
   method: 'GET',
   url: 'http://localhost:8080/regates/webresources/events'
   }).then(function successCallback(response) {
-    $scope.events = response.data;
+
+    Events.events = response.data;
+    $scope.events = Events.events;
+
   }, function errorCallback(response) {
-  });*/
+  });
+  //console.log(Events.events);
+  //$scope.events = Events.all();
+  $scope.remove = function(event) {
+    Events.remove(event);
+  };
 })
 
-.controller('EventInfoCtrl', function($scope, $stateParams, Events, Ships) {
+.controller('EventInfoCtrl', function($scope, $stateParams, $ionicNavBarDelegate, Events, Ships) {
   /*
   $http({
   method: 'GET',
@@ -28,6 +30,15 @@ angular.module('starter.controllers', [])
   }, function errorCallback(response) {
   });
   */
+  $scope.event = Events.get($stateParams.eventId);
+  $scope.ships = Ships.all();
+  $scope.remove = function(ships) {
+    Ships.remove(ships);
+  };
+})
+
+.controller('EventScoreCtrl', function($scope, $stateParams, Events, Ships) {
+
   $scope.event = Events.get($stateParams.eventId);
   $scope.ships = Ships.all();
   $scope.remove = function(ships) {

@@ -1,3 +1,4 @@
+
 <ion-view view-title="Events">
   <ion-content>
 
@@ -13,11 +14,11 @@
             <img ng-src="img/cities/{{event.img}}">
 
             <div class="row">
-              <a class="col-25 col-offset-0 col-top" nav-direction="back" href="#/tab/events/{{event.id}}">
+              <a class="col-25 col-offset-0 col-top" nav-direction="back" href="#/tab/events/{{event.id}}" style="margin-left:15px;">
                 <button class="button button-outline button-assertive icon-left ion-chevron-left">Infos</button>
               </a>
-              <h2 class="col-50 col-center" style="font-size:20px;">{{event.date}}</h2>
-              <a class="col-25 col-offset-0 col-top" nav-direction="forward" href="#">
+              <h2 class="col-50 col-offset-0 col-center" style="font-size:20px;">{{event.date}}</h2>
+              <a class="col-25 col-offset-0 col-top" nav-direction="forward" href="#/tab/events/score/{{event.id}}">
                 <button class="button button-outline button-assertive icon-right ion-chevron-right">Score</button>
               </a>
             </div>

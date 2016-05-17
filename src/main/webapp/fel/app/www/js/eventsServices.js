@@ -2,6 +2,9 @@ angular.module('events.services', [])
 
 .factory('Events', function() {
 
+
+
+    /*
     var events = [{
       id: 1,
       city: 'Détroit',
@@ -63,6 +66,7 @@ angular.module('events.services', [])
       date: '2016/06/20',
       img: 'stuart.jpg'
     }];
+    */
 
     return {
       all: function() {

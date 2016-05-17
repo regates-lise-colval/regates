@@ -6,6 +6,8 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
+var events;
+
 angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'contests.services', 'ships.services'])
 
 .run(function($ionicPlatform) {
@@ -60,6 +62,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'c
       'tab-events': {
         templateUrl: 'templates/event-info.html',
         controller: 'EventInfoCtrl'
+      }
+    }
+  })
+
+  .state('tab.event-score', {
+    url: '/events/score/:eventId',
+    views: {
+      'tab-events': {
+        templateUrl: 'templates/event-score.html',
+        controller: 'EventScoreCtrl'
       }
     }
   })
