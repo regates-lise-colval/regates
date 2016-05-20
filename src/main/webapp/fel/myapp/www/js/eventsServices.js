@@ -2,7 +2,7 @@ angular.module('events.services', [])
 
 .factory('Events', function($http) {
 
-    var events;
+    /*var events;
 
     $http({
     method: 'GET',
@@ -11,9 +11,9 @@ angular.module('events.services', [])
         events = response.data;
     }, function errorCallback(response) {
 
-    });
+    }); */
     
-    /*
+    
     var events = [{
       id: 1,
       city: 'Détroit',
@@ -75,7 +75,7 @@ angular.module('events.services', [])
       date: '2016/06/20',
       img: 'stuart.jpg'
     }];
-    */
+    
 
     return {
       all: function() {
