@@ -5,28 +5,32 @@
   The Friends service returns an array of friend data
 -->
 
-<ion-view view-title="{{event.city + ' - ' + event.category}}">
-  <ion-content class="padding">
+<ion-view ng-controller="EventInfoCtrl as e " ng-init="e.loadEvent()" view-title="Event Info">
+    <ion-content class="padding">
 
-    <a nav-direction="forward" href="#/tab/events">
-     <button class="button button-outline button-assertive icon-right ion-chevron-right col-offset-66">Events</button>
-    </a>
+        <a nav-direction="forward" href="#/tab/events">
+            <button class="button button-outline button-assertive icon-right ion-chevron-right col-offset-66">Events</button>
+        </a>
 
-    <ion-item class="item-image" style="margin-top:10px;">
-      <img ng-src="img/cities/{{event.img}}">
-    </ion-item>
+        <h2 style="text-align:center">
+            {{e.event.city}} - {{e.event.category}}
+        </h2>
 
-    <h2 style="text-align:center;margin-bottom:20px;font-size:30px;">Participants</h2>
+        <ion-item class=" item-image " style="margin-top:10px; ">
+            <img ng-src="img/cities/{{e.event.img}} ">
+        </ion-item>
 
-    <ion-list>
-      <ion-item class="item item-thumbnail-left" ng-repeat="ship in ships">
-        <img ng-src="img/ships/{{ship.img}}">
-        <div style="margin-top:15px;">
-          <h2 style="font-size:20px;">#{{ship.tag}}</h2>
-          <h2 style="font-size:20px;">{{ship.driver}}</h2>
-        </div>
-      </ion-item>
-    </ion-list>
+        <h2 style="text-align:center;margin-bottom:20px;font-size:30px; ">Participants</h2>
 
-  </ion-content>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left " ng-repeat="ship in ships ">
+                <img ng-src="img/ships/{{ship.img}} ">
+                <div style="margin-top:15px; ">
+                    <h2 style="font-size:20px; ">#{{ship.tag}}</h2>
+                    <h2 style="font-size:20px; ">{{ship.driver}}</h2>
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
 </ion-view>

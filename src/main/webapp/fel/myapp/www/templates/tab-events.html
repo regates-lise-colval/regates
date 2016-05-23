@@ -1,33 +1,31 @@
+<ion-view view-title="Events" ng-controller="EventsCtrl as e " ng-init="e.loadEvent()">
+    <ion-content>
 
-<ion-view view-title="Events" ng-init="loadEvent()">
-  <ion-content>
+        <ion-list>
+            <ion-item class="item-image" ng-repeat="event in e.events">
+                <div class="card">
+                    <div class="item">
+                        <h2 style="font-size:25px;">{{event.city + ' - ' + event.category}}</h2>
+                    </div>
+                    <div>
 
-    <ion-list>
-      <ion-item class="item-image" ng-repeat="event in events">
-      <div class="card">
-        <div class="item">
-            <h2 style="font-size:25px;">{{event.city + ' - ' + event.category}}</h2>
-        </div>
+                        <img ng-src="img/cities/{{event.img}}">
 
-        <div>
+                        <div class="row">
+                            <a class="col-25 col-offset-0 col-top" nav-direction="back" href="#/tab/events/{{event.id}}" style="margin-left:15px;">
+                                <button class="button button-outline button-assertive icon-left ion-chevron-left">Infos</button>
+                            </a>
+                            <h2 class="col-50 col-offset-0 col-center" style="font-size:20px;">{{event.date}}</h2>
+                            <a class="col-25 col-offset-0 col-top" nav-direction="forward" href="#/tab/events/score/{{event.id}}">
+                                <button class="button button-outline button-assertive icon-right ion-chevron-right">Score</button>
+                            </a>
+                        </div>
 
-            <img ng-src="img/cities/{{event.img}}">
+                    </div>
 
-            <div class="row">
-              <a class="col-25 col-offset-0 col-top" nav-direction="back" href="#/tab/events/{{event.id}}" style="margin-left:15px;">
-                <button class="button button-outline button-assertive icon-left ion-chevron-left">Infos</button>
-              </a>
-              <h2 class="col-50 col-offset-0 col-center" style="font-size:20px;">{{event.date}}</h2>
-              <a class="col-25 col-offset-0 col-top" nav-direction="forward" href="#/tab/events/score/{{event.id}}">
-                <button class="button button-outline button-assertive icon-right ion-chevron-right">Score</button>
-              </a>
-            </div>
+                </div>
+            </ion-item>
+        </ion-list>
 
-        </div>
-
-      </div>
-      </ion-item>
-    </ion-list>
-
-  </ion-content>
+    </ion-content>
 </ion-view>
