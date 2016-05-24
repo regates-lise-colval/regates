@@ -28,9 +28,11 @@ import lise.colval.regates.dal.dto.Ship_DTO;
 public class ShipService {
     
     @GET
-    @Path("{/id}")
-    public Ship getShip(@PathParam("id") int id) {
-        return new ProfileShipController().getShip(id);
+    @Path("/{id}")
+    public Ship_DTO findShipById(@PathParam("id") int id) {
+        Ship ship = new ProfileShipController().findShipById(id);
+        Ship_DTO shipDTO = Repository.getInstance().createShipDTO(ship);
+        return shipDTO;
     }
     
     @GET

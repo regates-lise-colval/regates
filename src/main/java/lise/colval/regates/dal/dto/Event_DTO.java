@@ -67,7 +67,7 @@ public class Event_DTO {
     }
 
     public void setContestId(int contestId) {
-        this.contestId = contestId;
+        this.contestId = 1;
     }
     
     @Override

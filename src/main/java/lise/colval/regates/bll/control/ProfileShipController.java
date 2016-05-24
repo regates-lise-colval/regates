@@ -15,8 +15,8 @@ import lise.colval.regates.dal.Repository;
  */
 public class ProfileShipController {
 
-    public Ship getShip(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Ship findShipById(int id) {
+        return Repository.getInstance().findShipById(id);
     }  
 
     public List<Ship> getAllShips() {

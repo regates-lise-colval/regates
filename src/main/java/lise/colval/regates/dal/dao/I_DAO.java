@@ -9,8 +9,10 @@ import java.util.List;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
 import lise.colval.regates.bll.model.competition.Race;
+import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.bll.model.participant.Ship;
 import lise.colval.regates.dal.dto.Contest_DTO;
+import lise.colval.regates.dal.dto.Driver_DTO;
 import lise.colval.regates.dal.dto.Event_DTO;
 import lise.colval.regates.dal.dto.Race_DTO;
 import lise.colval.regates.dal.dto.Ship_DTO;
@@ -26,6 +28,13 @@ public interface I_DAO {
     public abstract List<Ship> getAllShips();
     public abstract Ship_DTO createShipDTO(Ship ship);
     public abstract Ship createBeanShip(Ship_DTO shipDTO);
+    
+    // ----- DRIVER ----- //
+    public abstract Driver findDriverById(int id);
+    public abstract Driver_DTO findDriverDTOById(int id);
+    public abstract List<Driver> getAllDrivers();
+    public abstract Driver_DTO createDriverDTO(Driver driver);
+    public abstract Driver createBeanDriver(Driver_DTO driverDTO);
     
     // ----- EVENT ----- //
     public abstract Event findEventById(int id);

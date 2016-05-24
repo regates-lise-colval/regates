@@ -7,21 +7,21 @@ package lise.colval.regates.bll.control;
 
 import java.util.List;
 import lise.colval.regates.bll.model.competition.Event;
+import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.dal.Repository;
-
 
 /**
  *
- * @author Vincent Laude
+ * @author vince
  */
-public class AllEventsController {
+public class AllDriversController {
     
-    public Event findEventById(int id) {
-        return Repository.getInstance().findEventById(id);
+     public Driver findDriverById(int id) {
+        return Repository.getInstance().findDriverById(id);
     }
     
-    public List<Event> getAllEvents() {
-        return Repository.getInstance().getAllEvents();
+    public List<Driver> getAllDrivers() {
+        return Repository.getInstance().getAllDrivers();
     }  
     
 }

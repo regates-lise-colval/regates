@@ -28,7 +28,7 @@ import lise.colval.regates.dal.dto.Event_DTO;
 public class EventService {
    
     @GET
-    @Path("{/id}")
+    @Path("/{id}")
     public Event_DTO findEventById(@PathParam("id") int id) {
         Event event =  new AllEventsController().findEventById(id);
         Event_DTO eventDTO = Repository.getInstance().createEventDTO(event);

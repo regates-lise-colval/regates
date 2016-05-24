@@ -82,6 +82,10 @@ public class Participation {
     public List<Driver> getParticipatingDrivers() {
         return participatingDrivers;
     }
+    
+    public void addParticipationDriver(Driver driver) {
+        this.participatingDrivers.add(driver);
+    }
 
     public void setParticipatingDrivers(List<Driver> participatingDrivers) {
         this.participatingDrivers = participatingDrivers;

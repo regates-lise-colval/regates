@@ -24,6 +24,10 @@ public class Contest {
     
     public Contest() {}
     
+    public Contest(int id) {
+        this.id = id;
+    }
+    
     public Contest(int id, int year, String category, String title, String img) {
         this.id = id;
         this.year = year;

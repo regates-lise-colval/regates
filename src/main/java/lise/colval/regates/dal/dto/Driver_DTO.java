@@ -3,27 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lise.colval.regates.bll.model.participant;
+package lise.colval.regates.dal.dto;
 
 /**
  *
- * @author Vincent Laude
+ * @author vince
  */
-public class Driver {
-
+public class Driver_DTO {
+    
     private int id;
     private String firstname;
     private String lastname;
-    private Ship ship;
+    private int shipId;
     
-    public Driver() {}
-    
-    public Driver(int id, String firstname, String lastname, Ship ship) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.ship = ship;
-    }
+    public Driver_DTO() {}
 
     public int getId() {
         return id;
@@ -49,16 +42,16 @@ public class Driver {
         this.lastname = lastname;
     }
 
-    public Ship getShip() {
-        return ship;
+    public int getShipId() {
+        return shipId;
     }
 
-    public void setShip(Ship ship) {
-        this.ship = ship;
+    public void setShipId(int shipId) {
+        this.shipId = shipId;
     }
-    
+
     @Override
     public String toString() {
-        return "Driver: " + firstname + " " + lastname + " " + ship;
+        return "DriverDTO: " + id + " " + firstname + " " + lastname + " " + shipId;
     }
 }

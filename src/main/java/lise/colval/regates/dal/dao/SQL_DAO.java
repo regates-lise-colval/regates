@@ -5,14 +5,19 @@
  */
 package lise.colval.regates.dal.dao;
 
+import lise.colval.regates.dal.dao.participant.Ship_DAO;
 import lise.colval.regates.dal.dao.competition.Event_DAO;
 import lise.colval.regates.dal.dao.competition.Contest_DAO;
 import java.util.List;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
 import lise.colval.regates.bll.model.competition.Race;
+import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.bll.model.participant.Ship;
+import lise.colval.regates.dal.dao.competition.Race_DAO;
+import lise.colval.regates.dal.dao.participant.Driver_DAO;
 import lise.colval.regates.dal.dto.Contest_DTO;
+import lise.colval.regates.dal.dto.Driver_DTO;
 import lise.colval.regates.dal.dto.Event_DTO;
 import lise.colval.regates.dal.dto.Race_DTO;
 import lise.colval.regates.dal.dto.Ship_DTO;
@@ -30,8 +35,8 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     // ----- SHIP ----- //
 
     @Override
-    public Ship findShipById(int tag) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Ship findShipById(int id) {
+        return new Ship_DAO(db_url, db_driver, db_user, db_password).findShipById(id);
     }
 
     @Override
@@ -49,6 +54,32 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
         return new Ship_DAO(db_url, db_driver, db_user, db_password).createBeanShip(shipDTO);
     }
 
+    // ----- DRIVER ----- //
+    @Override
+    public Driver findDriverById(int id) {
+        return new Driver_DAO(db_url, db_driver, db_user, db_password).findDriverById(id);
+    }
+    
+    @Override
+    public Driver_DTO findDriverDTOById(int id) {
+        return new Driver_DAO(db_url, db_driver, db_user, db_password).findDriverDTOById(id);
+    }
+
+    @Override
+    public List<Driver> getAllDrivers() {
+        return new Driver_DAO(db_url, db_driver, db_user, db_password).getAllDrivers();
+    }
+
+    @Override
+    public Driver_DTO createDriverDTO(Driver driver) {
+        return new Driver_DAO(db_url, db_driver, db_user, db_password).createDriverDTO(driver);
+    }
+
+    @Override
+    public Driver createBeanDriver(Driver_DTO driverDTO) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     // ----- EVENT ----- //
     
     @Override
@@ -85,11 +116,13 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     @Override
     public Contest_DTO createContestDTO(Contest contest) {
         return new Contest_DAO(db_url, db_driver, db_user, db_password).createContestDTO(contest);
-    }    
+    } 
+    
+    // ----- RACE ----- //
 
     @Override
     public Race findRaceById(int raceId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Race_DAO(db_url, db_driver, db_user, db_password).findRaceById(raceId);
     }
 
     @Override

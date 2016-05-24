@@ -14,7 +14,7 @@ public class Ship_DTO {
     private int id;
     private int tag;
     private String category;
-    private String mainDriver;
+    private int mainDriverId;
     
     public Ship_DTO() {}
 
@@ -42,16 +42,16 @@ public class Ship_DTO {
         this.category = category;
     }
 
-    public String getMainDriver() {
-        return mainDriver;
+    public int getMainDriverId() {
+        return mainDriverId;
     }
 
-    public void setMainDriver(String mainDriver) {
-        this.mainDriver = mainDriver;
+    public void setMainDriverId(int mainDriverId) {
+        this.mainDriverId = mainDriverId;
     }
-  
+    
     @Override
     public String toString() {
-        return "ShipDTO: " + tag + " " + category + " " + mainDriver;
+        return "ShipDTO: " + tag + " " + category + " " + mainDriverId;
     }
 }

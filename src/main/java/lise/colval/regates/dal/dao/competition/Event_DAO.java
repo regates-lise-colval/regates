@@ -40,15 +40,17 @@ public class Event_DAO extends SQL_DAO {
             String request = "SELECT * FROM EVENT WHERE ID = " + id;
             ResultSet rs = stmt.executeQuery(request);
             
-            String city = rs.getString("city");
-            String category = rs.getString("category");
-            String date = rs.getString("date");
-            String img = rs.getString("img");
-            int contestId = rs.getInt("contestid");
+            while(rs.next()) {
+                String city = rs.getString("city");
+                String category = rs.getString("category");
+                String date = rs.getString("date");
+                String img = rs.getString("img");
+                int contestId = rs.getInt("contestid");
                 
-            Contest contest = Repository.getInstance().findContestById(contestId);
-                
-            event = new Event(id, city, category, date, img, contest);
+                //Contest contest = Repository.getInstance().findContestById(contestId);
+                event = new Event(id, city, category, date, img, new Contest(1));
+            }
+            
             
             
         } catch (SQLException ex) {
