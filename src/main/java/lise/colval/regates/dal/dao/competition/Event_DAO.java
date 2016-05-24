@@ -63,6 +63,43 @@ public class Event_DAO extends SQL_DAO {
     }
     
     @Override
+    public Event_DTO findEventDTOById(int id) {
+        Event_DTO eventDTO = new Event_DTO();
+        Statement stmt = null;
+        
+        try {
+            
+            stmt = connect().createStatement();
+            String request = "SELECT * FROM EVENT WHERE ID = " + id;
+            ResultSet rs = stmt.executeQuery(request);
+            
+            while(rs.next()) {
+                String city = rs.getString("city");
+                String category = rs.getString("category");
+                String date = rs.getString("date");
+                String img = rs.getString("img");
+                int contestId = rs.getInt("contestid");
+                
+                eventDTO.setId(id);
+                eventDTO.setCity(city);
+                eventDTO.setCategory(category);
+                eventDTO.setDate(date);
+                eventDTO.setImg(img);
+                eventDTO.setContestId(contestId);
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        closeConnection();
+        
+        return eventDTO;
+    }
+    
+    @Override
     public List<Event> getAllEvents() {
         List<Event> events;
         events = new ArrayList<>();

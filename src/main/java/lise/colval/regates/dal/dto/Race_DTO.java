@@ -5,10 +5,56 @@
  */
 package lise.colval.regates.dal.dto;
 
+import java.util.List;
+
 /**
  *
  * @author Vincent Laude
  */
 public class Race_DTO {
+    
+    private int id;
+    private String name;
+    private int eventDTOId;
+    private List<Integer> participationsIds;
+    
+    public Race_DTO() {}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getEventDTOId() {
+        return eventDTOId;
+    }
+
+    public void setEventDTOId(int eventDTOId) {
+        this.eventDTOId = eventDTOId;
+    }
+
+    public List<Integer> getParticipationsIds() {
+        return participationsIds;
+    }
+
+    public void setParticipationsIds(List<Integer> participationsIds) {
+        this.participationsIds = participationsIds;
+    }
+    
+    @Override
+    public String toString() {
+        return "Race_DTO: " + id + " " + name + " " + eventDTOId;    
+    }
     
 }

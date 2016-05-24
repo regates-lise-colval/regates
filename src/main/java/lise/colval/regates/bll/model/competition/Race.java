@@ -7,6 +7,7 @@ package lise.colval.regates.bll.model.competition;
 
 import java.util.ArrayList;
 import java.util.List;
+import lise.colval.regates.dal.dto.Event_DTO;
 
 /**
  *
@@ -16,14 +17,14 @@ public class Race {
     
     private int id;
     private String name;
-    private Event event;
+    private Event_DTO eventDTO;
     private List<Participation> participations;
     
-    public Race(int id, String name, Event event, List<Participation> participations) {
+    public Race(int id, String name, Event_DTO eventDTO, List<Participation> participations) {
         this.id = id;
         this.name = name;
-        this.event = event;
-        this.participations = new ArrayList<Participation>(participations);
+        this.eventDTO = eventDTO;
+        this.participations = null;
     }
 
     public int getId() {
@@ -42,12 +43,12 @@ public class Race {
         this.name = name;
     }
 
-    public Event getEvent() {
-        return event;
+    public Event_DTO getEventDTO() {
+        return eventDTO;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setEventDTO(Event_DTO eventDTO) {
+        this.eventDTO = eventDTO;
     }
 
     public List<Participation> getParticipations() {
@@ -60,6 +61,6 @@ public class Race {
     
     @Override
     public String toString() {
-        return "Race: " + name + " " + event;
+        return "Race: " + name + " " + eventDTO;
     }
 }

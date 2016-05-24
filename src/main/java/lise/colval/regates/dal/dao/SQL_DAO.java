@@ -88,6 +88,11 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     }
     
     @Override
+    public Event_DTO findEventDTOById(int id) {
+        return new Event_DAO(db_url, db_driver, db_user, db_password).findEventDTOById(id);
+    }
+    
+    @Override
     public List<Event> getAllEvents() {
        return new Event_DAO(db_url, db_driver, db_user, db_password).getAllEvents();
     }
@@ -127,12 +132,12 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
 
     @Override
     public List<Race> getAllRaces() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Race_DAO(db_url, db_driver, db_user, db_password).getAllRaces();
     }
 
     @Override
     public Race_DTO createRaceDTO(Race race) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Race_DAO(db_url, db_driver, db_user, db_password).createRaceDTO(race);
     }
 
 }

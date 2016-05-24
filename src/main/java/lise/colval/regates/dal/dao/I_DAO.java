@@ -38,6 +38,7 @@ public interface I_DAO {
     
     // ----- EVENT ----- //
     public abstract Event findEventById(int id);
+    public abstract Event_DTO findEventDTOById(int id);
     public abstract List<Event> getAllEvents();
     public abstract Event_DTO createEventDTO(Event event);
     public abstract Event createBeanEvent(Event_DTO eventDTO);

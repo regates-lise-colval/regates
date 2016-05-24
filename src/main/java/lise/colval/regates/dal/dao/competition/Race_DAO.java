@@ -14,6 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import lise.colval.regates.dal.dao.SQL_DAO;
 import lise.colval.regates.bll.model.competition.Race;
+import lise.colval.regates.dal.Repository;
+import lise.colval.regates.dal.dto.Event_DTO;
+import lise.colval.regates.dal.dto.Race_DTO;
 
 /**
  *
@@ -30,6 +33,7 @@ public class Race_DAO extends SQL_DAO {
         return null;
     }
     
+    @Override
     public List<Race> getAllRaces() {
         List<Race> races;
         races = new ArrayList<>();
@@ -44,15 +48,12 @@ public class Race_DAO extends SQL_DAO {
             
             while(rs.next()) {
                 int id = rs.getInt("id");
-                /*String city = rs.getString("city");
-                String category = rs.getString("category");
-                String date = rs.getString("date");
-                String img = rs.getString("img");
-                int contestId = rs.getInt("contestid");
+                String name = rs.getString("name");
+                int eventId = rs.getInt("event");
                 
-                Contest contest = Repository.getInstance().findContestById(contestId);*/
+                Event_DTO eventDTO = Repository.getInstance().findEventDTOById(eventId);
                 
-                Race race = new Race(0, null, null, null);
+                Race race = new Race(id, name, eventDTO, null);
                 races.add(race);
             }
             
@@ -67,4 +68,14 @@ public class Race_DAO extends SQL_DAO {
         return races;
     }
     
+    
+    @Override
+    public Race_DTO createRaceDTO(Race race) {
+        Race_DTO raceDTO = new Race_DTO();
+        raceDTO.setId(race.getId());
+        raceDTO.setName(race.getName());
+        raceDTO.setEventDTOId(race.getEventDTO().getId());
+        raceDTO.setParticipationsIds(null);
+        return raceDTO;
+    }
 }
