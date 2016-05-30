@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
+import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.dal.Repository;
 import lise.colval.regates.dal.dao.SQL_DAO;
 import lise.colval.regates.dal.dto.Event_DTO;
@@ -49,8 +50,14 @@ public class Event_DAO extends SQL_DAO {
                 
                 //Contest contest = Repository.getInstance().findContestById(contestId);
                 event = new Event(id, city, category, date, img, new Contest(1));
+                
+                List<Race> races = Repository.getInstance().getAllRaces();
+                for(Race race : races) {
+                    if(race.getEventDTO().getId() == event.getId()) {
+                        event.addRace(race);
+                    }
+                }
             }
-            
             
             
         } catch (SQLException ex) {
@@ -80,12 +87,22 @@ public class Event_DAO extends SQL_DAO {
                 String img = rs.getString("img");
                 int contestId = rs.getInt("contestid");
                 
+                /*List<Race> races = Repository.getInstance().getAllRaces();
+                List<Race> racesForDTO = new ArrayList<>();
+              
+                for(Race race : races) {
+                    if(race.getEventDTO().getId() == id) {
+                        racesForDTO.add(race);
+                    }
+                }*/
+                
                 eventDTO.setId(id);
                 eventDTO.setCity(city);
                 eventDTO.setCategory(category);
                 eventDTO.setDate(date);
                 eventDTO.setImg(img);
                 eventDTO.setContestId(contestId);
+                //eventDTO.setRacesId(racesForDTO);
             }
             
             
@@ -123,6 +140,15 @@ public class Event_DAO extends SQL_DAO {
                 Contest contest = Repository.getInstance().findContestById(contestId);
                 
                 Event event = new Event(id, city, category, date, img, contest);
+                
+                List<Race> races = Repository.getInstance().getAllRaces();
+                
+                for(Race race : races) {
+                    if(race.getEventDTO().getId() == event.getId()) {
+                        event.addRace(race);
+                    }
+                }
+                
                 events.add(event);
             }
             
@@ -147,6 +173,7 @@ public class Event_DAO extends SQL_DAO {
         eventDTO.setDate(event.getDate());
         eventDTO.setImg(event.getImg());
         eventDTO.setContestId(event.getContest().getId());
+        eventDTO.setRacesId(event.getRaces());
         
         return eventDTO;
     }

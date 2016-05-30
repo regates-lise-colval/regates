@@ -5,6 +5,9 @@
  */
 package lise.colval.regates.bll.model.competition;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -18,7 +21,7 @@ public class Event {
     private String date;
     private String img;
     
-    //private List<Race> races;
+    private List<Race> races;
     private Contest contest;
     
     public Event() {}
@@ -38,6 +41,7 @@ public class Event {
         this.date = date;
         this.img = img;
         this.contest = contest;
+        this.races = new ArrayList<>();
     }
 
     public int getId() {
@@ -86,6 +90,14 @@ public class Event {
 
     public void setContest(Contest contest) {
         this.contest = contest;
+    }
+
+    public List<Race> getRaces() {
+        return races;
+    }
+    
+    public void addRace(Race race) {
+        this.races.add(race);
     }
     
     @Override
