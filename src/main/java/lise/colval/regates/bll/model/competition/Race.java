@@ -20,6 +20,8 @@ public class Race {
     private Event_DTO eventDTO;
     private List<Participation> participations;
     
+    public Race() {}
+    
     public Race(int id, String name, Event_DTO eventDTO, List<Participation> participations) {
         this.id = id;
         this.name = name;

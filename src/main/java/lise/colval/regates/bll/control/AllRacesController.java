@@ -16,11 +16,11 @@ import lise.colval.regates.dal.Repository;
 public class AllRacesController {
 
     public Race findRaceById(int id) {
-        return new Repository().getInstance().findRaceById(id);
+        return Repository.getInstance().findRaceById(id);
     }
 
     public List<Race> getAllRaces() {
-        return new Repository().getInstance().getAllRaces();
+        return Repository.getInstance().getAllRaces();
     }
     
 }

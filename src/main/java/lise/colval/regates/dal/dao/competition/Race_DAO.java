@@ -30,7 +30,35 @@ public class Race_DAO extends SQL_DAO {
     
     @Override
     public Race findRaceById(int id) {
-        return null;
+        Race race = new Race();
+        
+        Statement stmt = null;
+     
+        try {
+            
+            stmt = connect().createStatement();   
+            String request = "SELECT * FROM RACE WHERE ID = " + id;
+            ResultSet rs = stmt.executeQuery(request);
+            
+            while(rs.next()) {
+    
+                String name = rs.getString("name");
+                int eventId = rs.getInt("event");
+                
+                Event_DTO eventDTO = Repository.getInstance().findEventDTOById(eventId);
+                
+                race = new Race(id, name, eventDTO, null);
+            }
+            
+            stmt.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SQL_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        closeConnection();
+        return race;
     }
     
     @Override

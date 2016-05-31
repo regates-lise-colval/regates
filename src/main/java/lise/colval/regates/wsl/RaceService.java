@@ -28,7 +28,7 @@ import lise.colval.regates.dal.dto.Race_DTO;
 public class RaceService {
     
     @GET
-    @Path("{/id}")
+    @Path("/{id}")
     public Race_DTO findRaceById(@PathParam("id") int id) {
         Race race =  new AllRacesController().findRaceById(id);
         Race_DTO raceDTO = Repository.getInstance().createRaceDTO(race);
