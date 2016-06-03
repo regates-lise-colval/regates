@@ -11,14 +11,17 @@ import lise.colval.regates.dal.dao.competition.Contest_DAO;
 import java.util.List;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
+import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.bll.model.participant.Ship;
+import lise.colval.regates.dal.dao.competition.Participation_DAO;
 import lise.colval.regates.dal.dao.competition.Race_DAO;
 import lise.colval.regates.dal.dao.participant.Driver_DAO;
 import lise.colval.regates.dal.dto.Contest_DTO;
 import lise.colval.regates.dal.dto.Driver_DTO;
 import lise.colval.regates.dal.dto.Event_DTO;
+import lise.colval.regates.dal.dto.Participation_DTO;
 import lise.colval.regates.dal.dto.Race_DTO;
 import lise.colval.regates.dal.dto.Ship_DTO;
 
@@ -140,4 +143,16 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
         return new Race_DAO(db_url, db_driver, db_user, db_password).createRaceDTO(race);
     }
 
+    // ----- PARTICIPATION ----- //
+    
+    @Override
+    public List<Participation> getAllParticipations() {
+        return new Participation_DAO(db_url, db_driver, db_user, db_password).getAllParticipations();
+    }
+    
+    @Override
+    public Participation_DTO createParticipationDTO(Participation participation) {
+        return new Participation_DAO(db_url, db_driver, db_user, db_password).createParticipationDTO(participation);
+    }
+    
 }

@@ -1,0 +1,66 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'cordova',
+1 verbose cli   'ionic' ]
+2 info using npm@2.15.1
+3 info using node@v4.4.4
+4 verbose install initial load of C:\Users\vince\AppData\Roaming\npm\package.json
+5 verbose readDependencies loading dependencies from C:\Users\vince\AppData\Roaming\npm\package.json
+6 silly cache add args [ 'cordova', null ]
+7 verbose cache add spec cordova
+8 silly cache add args [ 'ionic', null ]
+9 verbose cache add spec ionic
+10 silly cache add parsed spec Result {
+10 silly cache add   raw: 'cordova',
+10 silly cache add   scope: null,
+10 silly cache add   name: null,
+10 silly cache add   rawSpec: 'cordova',
+10 silly cache add   spec: 'C:\\Users\\vince\\Documents\\NetBeansProjects\\regates_project\\src\\main\\webapp\\fel\\app\\cordova',
+10 silly cache add   type: 'local' }
+11 silly cache add parsed spec Result {
+11 silly cache add   raw: 'ionic',
+11 silly cache add   scope: null,
+11 silly cache add   name: null,
+11 silly cache add   rawSpec: 'ionic',
+11 silly cache add   spec: 'C:\\Users\\vince\\Documents\\NetBeansProjects\\regates_project\\src\\main\\webapp\\fel\\app\\ionic',
+11 silly cache add   type: 'local' }
+12 silly addLocalTarball shasum (computed) 9a3c7172c80b25e47c56efc51164ef0aefeefb9a
+13 verbose addTmpTarball C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\cordova not in flight; adding
+14 silly addLocalTarball shasum (computed) f8ef8a00b0c789a2f3cacd27141966ca96491063
+15 verbose addTmpTarball C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\ionic not in flight; adding
+16 verbose correctMkdir C:\Users\vince\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 verbose correctMkdir C:\Users\vince\AppData\Roaming\npm-cache correctMkdir already in flight; waiting
+18 verbose addTmpTarball validating metadata from C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\cordova
+19 verbose tar unpack C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\cordova
+20 verbose tar unpacking to C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-521718a8306a
+21 silly gentlyRm C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-521718a8306a is being purged
+22 verbose gentlyRm don't care about contents; nuking C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-521718a8306a
+23 verbose addTmpTarball validating metadata from C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\ionic
+24 verbose tar unpack C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\ionic
+25 verbose tar unpacking to C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-5f472f793c5b
+26 silly gentlyRm C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-5f472f793c5b is being purged
+27 verbose gentlyRm don't care about contents; nuking C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-5f472f793c5b
+28 silly gunzTarPerm modes [ '777', '666' ]
+29 silly gunzTarPerm modes [ '777', '666' ]
+30 error not a package C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\ionic
+31 error addLocal Could not install C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\ionic
+32 error not a package C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\cordova
+33 error addLocal Could not install C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app\cordova
+34 verbose stack Error: ENOENT: no such file or directory, open 'C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-5f472f793c5b\package.json'
+34 verbose stack     at Error (native)
+35 verbose cwd C:\Users\vince\Documents\NetBeansProjects\regates_project\src\main\webapp\fel\app
+36 error Windows_NT 10.0.10586
+37 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "cordova" "ionic"
+38 error node v4.4.4
+39 error npm  v2.15.1
+40 error path C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-5f472f793c5b\package.json
+41 error code ENOENT
+42 error errno -4058
+43 error syscall open
+44 error enoent ENOENT: no such file or directory, open 'C:\Users\vince\AppData\Local\Temp\npm-3792-ccf70919\unpack-5f472f793c5b\package.json'
+44 error enoent This is most likely not a problem with npm itself
+44 error enoent and is related to npm not being able to find a file.
+45 verbose exit [ -4058, true ]

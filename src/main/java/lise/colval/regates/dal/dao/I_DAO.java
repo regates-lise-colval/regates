@@ -8,12 +8,14 @@ package lise.colval.regates.dal.dao;
 import java.util.List;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
+import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.bll.model.participant.Ship;
 import lise.colval.regates.dal.dto.Contest_DTO;
 import lise.colval.regates.dal.dto.Driver_DTO;
 import lise.colval.regates.dal.dto.Event_DTO;
+import lise.colval.regates.dal.dto.Participation_DTO;
 import lise.colval.regates.dal.dto.Race_DTO;
 import lise.colval.regates.dal.dto.Ship_DTO;
 
@@ -52,5 +54,9 @@ public interface I_DAO {
     public abstract Race findRaceById(int raceId);
     public abstract List<Race> getAllRaces();
     public abstract Race_DTO createRaceDTO(Race race);
+    
+    // ----- PARTICIPATION ---- //
+    public abstract List<Participation> getAllParticipations(); 
+    public abstract Participation_DTO createParticipationDTO(Participation participation);
     
 }

@@ -24,11 +24,20 @@ public class Participation {
     private Ship ship;
     private List<Driver> participatingDrivers;
     
+    public Participation() {}
+    
+    public Participation(int id, int corridor, Ship ship) {
+        this.id = id;
+        this.corridor = corridor;
+        this.ship = ship;
+        this.participatingDrivers = new ArrayList<>();
+    }
+     
     public Participation(int id, int corridor, Ship ship, List<Driver> drivers) {
         this.id = id;
         this.corridor = corridor;
         this.ship = ship;
-        this.participatingDrivers = new ArrayList<Driver>(drivers);
+        this.participatingDrivers = new ArrayList<>(drivers);
     }
 
     public int getId() {
