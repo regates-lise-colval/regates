@@ -18,5 +18,9 @@ public class AllParticipationsController {
     public List<Participation> getAllParticipations() {
         return Repository.getInstance().getAllParticipations();
     }
+
+    public List<Participation> findParticipationsByRace(int raceId) {
+        return Repository.getInstance().findParticipationsByRace(raceId);
+    }
     
 }

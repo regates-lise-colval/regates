@@ -58,5 +58,6 @@ public interface I_DAO {
     // ----- PARTICIPATION ---- //
     public abstract List<Participation> getAllParticipations(); 
     public abstract Participation_DTO createParticipationDTO(Participation participation);
+    public abstract List<Participation> findParticipationsByRace(int raceId);
     
 }

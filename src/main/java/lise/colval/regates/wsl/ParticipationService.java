@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import lise.colval.regates.bll.control.AllParticipationsController;
@@ -36,10 +37,15 @@ public class ParticipationService {
         return participationsDTO;
     }
 
-    /*@GET
-    @Path()
-    public List<Participation_DTO> findParticipationsByRace(int raceId) {
-        
-    }*/
+    @GET
+    @Path("/race/{raceId}")
+    public List<Participation_DTO> findParticipationsByRace(@PathParam("raceId") int raceId) {
+        List<Participation> participations = new AllParticipationsController().findParticipationsByRace(raceId);
+        List<Participation_DTO> participationsDTO = new ArrayList<>();
+        for(Participation participation : participations) {
+            participationsDTO.add(Repository.getInstance().createParticipationDTO(participation));
+        }
+        return participationsDTO;
+    }
     
 }
