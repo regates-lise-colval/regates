@@ -57,7 +57,7 @@
                     <th>Time</th>
                 </tr>
 
-                <tr ng-repeat="participation in race.participations">
+                <tr ng-repeat="participation in race.participations | orderBy:'-rank':true">
                     <td>{{participation.rank}}</td>
                     <td>{{participation.corridor}}</td>
                     <td>{{participation.ship.tag}}</td>
