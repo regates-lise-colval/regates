@@ -5,6 +5,7 @@
  */
 package lise.colval.regates.dal.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +19,9 @@ public class Race_DTO {
     private int eventDTOId;
     private List<Integer> participationsIds;
     
-    public Race_DTO() {}
+    public Race_DTO() {
+        this.participationsIds = new ArrayList<>(); 
+    }
 
     public int getId() {
         return id;
@@ -50,6 +53,10 @@ public class Race_DTO {
 
     public void setParticipationsIds(List<Integer> participationsIds) {
         this.participationsIds = participationsIds;
+    }
+    
+    public void addParticipationId(int id) {
+        this.participationsIds.add(id);
     }
     
     @Override

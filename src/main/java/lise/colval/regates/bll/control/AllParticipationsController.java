@@ -15,6 +15,10 @@ import lise.colval.regates.dal.Repository;
  */
 public class AllParticipationsController {
 
+    public Participation findParticipationById(int id) {
+        return Repository.getInstance().findParticipationById(id);
+    }
+    
     public List<Participation> getAllParticipations() {
         return Repository.getInstance().getAllParticipations();
     }

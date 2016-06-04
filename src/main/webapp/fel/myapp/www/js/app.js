@@ -8,7 +8,7 @@
 
 //var events;
 
-angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'contests.services', 'ships.services', 'races.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'contests.services', 'ships.services', 'races.services', 'participations.services'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {

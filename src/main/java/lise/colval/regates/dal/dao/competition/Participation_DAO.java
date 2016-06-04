@@ -30,6 +30,49 @@ public class Participation_DAO extends SQL_DAO {
     }
     
     @Override
+    public Participation findParticipationById(int id) {
+        Participation participation;
+        participation = new Participation();
+        
+        Statement stmt = null;
+        
+        try {
+            
+            stmt = connect().createStatement();   
+            String request = "SELECT * FROM PARTICIPATION WHERE ID = " + id;
+            ResultSet rs = stmt.executeQuery(request);
+            
+            while(rs.next()) {
+                int shipid = rs.getInt("shipid");
+                int score = rs.getInt("score");
+                int rank = rs.getInt("rank");
+                int duration = rs.getInt("duration");
+                int corridor = rs.getInt("corridor");
+                int raceId = rs.getInt("raceid");
+                
+                Ship ship = Repository.getInstance().findShipById(shipid);
+                Race race = Repository.getInstance().findRaceById(raceId);
+                
+                participation = new Participation(id, corridor, ship);
+                participation.setDuration(duration);
+                participation.setRank(rank);
+                participation.setScore(score);
+                
+            }
+            
+            stmt.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SQL_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        closeConnection();  
+        
+        return participation;
+    }
+    
+    @Override
     public List<Participation> getAllParticipations() {
         List<Participation> participations;
         participations = new ArrayList<>();
@@ -108,7 +151,7 @@ public class Participation_DAO extends SQL_DAO {
                 int raceid = rs.getInt("raceid");
                 
                 Ship ship = Repository.getInstance().findShipById(shipid);
-                Race race = Repository.getInstance().findRaceById(raceid);
+                //Race race = Repository.getInstance().findRaceById(raceid);
                 
                 Participation participation = new Participation(id, corridor, ship);
                 participation.setDuration(duration);

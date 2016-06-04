@@ -28,12 +28,19 @@ import lise.colval.regates.dal.dto.Race_DTO;
 public class RaceService {
     
     @GET
-    @Path("/{id}")
-    public Race_DTO findRaceById(@PathParam("id") int id) {
+    @Path("/dto/{id}")
+    public Race_DTO findRaceByIdDTO(@PathParam("id") int id) {
         Race race =  new AllRacesController().findRaceById(id);
         Race_DTO raceDTO = Repository.getInstance().createRaceDTO(race);
         return raceDTO;
     }
+    @GET
+    @Path("/{id}")
+    public Race findRaceById(@PathParam("id") int id) {
+        Race race =  new AllRacesController().findRaceById(id);
+        return race;
+    }
+    
     
     @GET
     public List<Race_DTO> getAllRaces() {

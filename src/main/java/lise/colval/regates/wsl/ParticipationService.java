@@ -28,6 +28,14 @@ import lise.colval.regates.dal.dto.Participation_DTO;
 public class ParticipationService {
     
     @GET
+    @Path("/{id}")
+    public Participation_DTO findParticipationById(@PathParam("id") int id) {
+        Participation participation = new AllParticipationsController().findParticipationById(id);
+        Participation_DTO participationDTO = Repository.getInstance().createParticipationDTO(participation);
+        return participationDTO;
+    }
+    
+    @GET
     public List<Participation_DTO> getAllParticipations() {
         List<Participation> participations = new AllParticipationsController().getAllParticipations();
         List<Participation_DTO> participationsDTO = new ArrayList<>();

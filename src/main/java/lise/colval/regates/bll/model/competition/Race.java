@@ -26,7 +26,7 @@ public class Race {
         this.id = id;
         this.name = name;
         this.eventDTO = eventDTO;
-        this.participations = null;
+        this.participations = participations;
     }
 
     public int getId() {

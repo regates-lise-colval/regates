@@ -41,9 +41,33 @@
 
         <h2 style="text-align:center;margin-bottom:20px;font-size:30px;">Races</h2>
 
-        <ion-list ng-repeat="race in e.races">
+        <ion-list ng-repeat="race in e.event.races">
 
             <h2 style="font-size:20px; ">#{{race.name}}</h2>
+
+
+
+            <table class="table table-bordered table-striped" style="margin-bottom:50px">
+                <tr style="font-size:16px;background-color:#ef473a;font-weight:bold">
+                    <th>Position</th>
+                    <th>CR</th>
+                    <th>#</th>
+                    <th>Driver</th>
+                    <th>Points</th>
+                    <th>Time</th>
+                </tr>
+
+                <tr ng-repeat="participation in race.participations">
+                    <td>{{participation.rank}}</td>
+                    <td>{{participation.corridor}}</td>
+                    <td>{{participation.ship.tag}}</td>
+                    <td>{{participation.ship.mainDriver.firstname + " " + participation.ship.mainDriver.lastname}}</td>
+                    <td>{{participation.score}}</td>
+                    <td>{{participation.duration}}</td>
+                </tr>
+
+            </table>
+
 
         </ion-list>
 

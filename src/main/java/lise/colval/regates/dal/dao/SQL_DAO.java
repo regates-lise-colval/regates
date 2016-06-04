@@ -132,7 +132,7 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     public Race findRaceById(int raceId) {
         return new Race_DAO(db_url, db_driver, db_user, db_password).findRaceById(raceId);
     }
-
+    
     @Override
     public List<Race> getAllRaces() {
         return new Race_DAO(db_url, db_driver, db_user, db_password).getAllRaces();
@@ -144,6 +144,11 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     }
 
     // ----- PARTICIPATION ----- //
+    
+    @Override
+    public Participation findParticipationById(int id) {
+        return new Participation_DAO(db_url, db_driver, db_user, db_password).findParticipationById(id);
+    }
     
     @Override
     public List<Participation> getAllParticipations() {

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.dal.dao.SQL_DAO;
 import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.dal.Repository;
@@ -47,7 +48,9 @@ public class Race_DAO extends SQL_DAO {
                 
                 Event_DTO eventDTO = Repository.getInstance().findEventDTOById(eventId);
                 
-                race = new Race(id, name, eventDTO, null);
+                List<Participation> participations = Repository.getInstance().findParticipationsByRace(id);
+                
+                race = new Race(id, name, eventDTO, participations);
             }
             
             stmt.close();
@@ -81,7 +84,9 @@ public class Race_DAO extends SQL_DAO {
                 
                 Event_DTO eventDTO = Repository.getInstance().findEventDTOById(eventId);
                 
-                Race race = new Race(id, name, eventDTO, null);
+                List<Participation> participations = Repository.getInstance().findParticipationsByRace(id);
+                
+                Race race = new Race(id, name, eventDTO, participations);
                 races.add(race);
             }
             
@@ -103,7 +108,9 @@ public class Race_DAO extends SQL_DAO {
         raceDTO.setId(race.getId());
         raceDTO.setName(race.getName());
         raceDTO.setEventDTOId(race.getEventDTO().getId());
-        raceDTO.setParticipationsIds(null);
+        for(Participation participation : race.getParticipations()) {
+            raceDTO.addParticipationId(participation.getId());
+        }
         return raceDTO;
     }
 }
