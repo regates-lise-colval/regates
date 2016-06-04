@@ -22,7 +22,7 @@ public class Participation {
     private int duration;
     private int corridor;
     private Ship ship;
-    private List<Driver> participatingDrivers;
+    private Driver participatingDriver;
     
     public Participation() {}
     
@@ -30,14 +30,13 @@ public class Participation {
         this.id = id;
         this.corridor = corridor;
         this.ship = ship;
-        this.participatingDrivers = new ArrayList<>();
     }
      
-    public Participation(int id, int corridor, Ship ship, List<Driver> drivers) {
+    public Participation(int id, int corridor, Ship ship, Driver driver) {
         this.id = id;
         this.corridor = corridor;
         this.ship = ship;
-        this.participatingDrivers = new ArrayList<>(drivers);
+        this.participatingDriver = driver;
     }
 
     public int getId() {
@@ -88,20 +87,16 @@ public class Participation {
         this.ship = ship;
     }
 
-    public List<Driver> getParticipatingDrivers() {
-        return participatingDrivers;
-    }
-    
-    public void addParticipationDriver(Driver driver) {
-        this.participatingDrivers.add(driver);
+    public Driver getParticipatingDriver() {
+        return participatingDriver;
     }
 
-    public void setParticipatingDrivers(List<Driver> participatingDrivers) {
-        this.participatingDrivers = participatingDrivers;
+    public void setParticipatingDriver(Driver participatingDriver) {
+        this.participatingDriver = participatingDriver;
     }
     
     @Override
     public String toString() {
-        return "Participation: " + id + " " + ship + " " + participatingDrivers + " " + score + " " + rank;
+        return "Participation: " + id + " " + ship + " " + participatingDriver + " " + score + " " + rank;
     }
 }
