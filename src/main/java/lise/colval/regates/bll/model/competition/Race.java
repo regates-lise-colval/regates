@@ -63,6 +63,6 @@ public class Race {
     
     @Override
     public String toString() {
-        return "Race: " + name + " " + eventDTO;
+        return "Race: " + name + " " + eventDTO + " " + participations;
     }
 }

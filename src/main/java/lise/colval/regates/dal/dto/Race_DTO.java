@@ -55,8 +55,8 @@ public class Race_DTO {
         this.participationsIds = participationsIds;
     }
     
-    public void addParticipationId(int id) {
-        this.participationsIds.add(id);
+    public void addParticipationId(int participationId) {
+        this.participationsIds.add(participationId);
     }
     
     @Override

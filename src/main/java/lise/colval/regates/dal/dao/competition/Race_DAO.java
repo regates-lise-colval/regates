@@ -85,8 +85,12 @@ public class Race_DAO extends SQL_DAO {
                 Event_DTO eventDTO = Repository.getInstance().findEventDTOById(eventId);
                 
                 List<Participation> participations = Repository.getInstance().findParticipationsByRace(id);
+                //System.out.println("----------PARTICIPATIONS----------: " + participations);
                 
                 Race race = new Race(id, name, eventDTO, participations);
+                
+                //System.out.println("RACE:" + race);
+                
                 races.add(race);
             }
             
@@ -109,7 +113,8 @@ public class Race_DAO extends SQL_DAO {
         raceDTO.setName(race.getName());
         raceDTO.setEventDTOId(race.getEventDTO().getId());
         for(Participation participation : race.getParticipations()) {
-            raceDTO.addParticipationId(participation.getId());
+            //System.out.println("ICI :" + participation); 
+           raceDTO.addParticipationId(participation.getId());
         }
         return raceDTO;
     }

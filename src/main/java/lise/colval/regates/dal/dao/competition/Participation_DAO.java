@@ -51,7 +51,7 @@ public class Participation_DAO extends SQL_DAO {
                 int raceId = rs.getInt("raceid");
                 
                 Ship ship = Repository.getInstance().findShipById(shipid);
-                Race race = Repository.getInstance().findRaceById(raceId);
+                //Race race = Repository.getInstance().findRaceById(raceId);
                 
                 participation = new Participation(id, corridor, ship);
                 participation.setDuration(duration);
@@ -95,7 +95,7 @@ public class Participation_DAO extends SQL_DAO {
                 int raceId = rs.getInt("raceid");
                 
                 Ship ship = Repository.getInstance().findShipById(shipid);
-                Race race = Repository.getInstance().findRaceById(raceId);
+                //Race race = Repository.getInstance().findRaceById(raceId);
                 
                 Participation participation = new Participation(id, corridor, ship);
                 participation.setDuration(duration);
@@ -157,6 +157,8 @@ public class Participation_DAO extends SQL_DAO {
                 participation.setDuration(duration);
                 participation.setRank(rank);
                 participation.setScore(score);
+                
+                //System.out.println("PARTICIPATION: " + participation);
                 
                 participations.add(participation);
             }

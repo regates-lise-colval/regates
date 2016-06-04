@@ -102,6 +102,6 @@ public class Participation {
     
     @Override
     public String toString() {
-        return "Participation: " + ship + " " + participatingDrivers + " " + score + " " + rank;
+        return "Participation: " + id + " " + ship + " " + participatingDrivers + " " + score + " " + rank;
     }
 }
