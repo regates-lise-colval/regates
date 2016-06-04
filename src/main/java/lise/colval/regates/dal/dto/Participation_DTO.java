@@ -5,7 +5,6 @@
  */
 package lise.colval.regates.dal.dto;
 
-import java.util.List;
 
 /**
  *
@@ -19,7 +18,7 @@ public class Participation_DTO {
     private int duration;
     private int corridor;
     private int shipId;
-    private List<Integer> participatingDriversIds;
+    private int participatingDriverId;
     
     public Participation_DTO() {}
 
@@ -71,18 +70,14 @@ public class Participation_DTO {
         this.shipId = shipId;
     }
 
-    public List<Integer> getParticipatingDriversIds() {
-        return participatingDriversIds;
+    public int getParticipatingDriverId() {
+        return participatingDriverId;
     }
 
-    public void setParticipatingDriversIds(List<Integer> participatingDriversIds) {
-        this.participatingDriversIds = participatingDriversIds;
+    public void setParticipatingDriverId(int participatingDriverId) {
+        this.participatingDriverId = participatingDriverId;
     }
-    
-    public void addParticipatingDriverId(int id) {
-        this.participatingDriversIds.add(id);
-    }
-
+   
     @Override
     public String toString() {
         return "Participation_DTO: " + id;

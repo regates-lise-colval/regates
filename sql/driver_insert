@@ -18,3 +18,12 @@ insert into driver (id, firstname, lastname, shipid) values (27, 'Wesley', 'Pott
 insert into driver (id, firstname, lastname, shipid) values (28, 'Laurent', 'Fleuve', 28);
 insert into driver (id, firstname, lastname, shipid) values (29, 'Sonia', 'Hachemi', 29);
 insert into driver (id, firstname, lastname, shipid) values (30, 'Doni', 'Mcdonald', 30);
+
+insert into driver (id, firstname, lastname, shipid) values (31, 'Crayon', 'H', 1);
+insert into driver (id, firstname, lastname, shipid) values (32, 'Bouteille', 'Do', 1);
+insert into driver (id, firstname, lastname, shipid) values (33, 'Sushi', 'No', 2);
+insert into driver (id, firstname, lastname, shipid) values (34, 'Dell', 'Asus', 2);
+insert into driver (id, firstname, lastname, shipid) values (35, 'Intel', 'Core', 11);
+insert into driver (id, firstname, lastname, shipid) values (36, 'Jean-Jack', 'OrHomme', 11);
+insert into driver (id, firstname, lastname, shipid) values (37, 'Sony', 'Xperia', 12);
+insert into driver (id, firstname, lastname, shipid) values (38, 'Titi', 'Grominet', 12);

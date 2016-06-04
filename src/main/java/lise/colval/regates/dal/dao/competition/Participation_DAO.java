@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.bll.model.competition.Race;
+import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.bll.model.participant.Ship;
 import lise.colval.regates.dal.Repository;
 import lise.colval.regates.dal.dao.SQL_DAO;
@@ -49,11 +50,12 @@ public class Participation_DAO extends SQL_DAO {
                 int duration = rs.getInt("duration");
                 int corridor = rs.getInt("corridor");
                 int raceId = rs.getInt("raceid");
+                int driverId = rs.getInt("driverid");
                 
                 Ship ship = Repository.getInstance().findShipById(shipid);
-                //Race race = Repository.getInstance().findRaceById(raceId);
+                Driver driver = Repository.getInstance().findDriverById(driverId);
                 
-                participation = new Participation(id, corridor, ship);
+                participation = new Participation(id, corridor, ship, driver);
                 participation.setDuration(duration);
                 participation.setRank(rank);
                 participation.setScore(score);
@@ -93,11 +95,13 @@ public class Participation_DAO extends SQL_DAO {
                 int duration = rs.getInt("duration");
                 int corridor = rs.getInt("corridor");
                 int raceId = rs.getInt("raceid");
+                int driverid = rs.getInt("driverid");
                 
                 Ship ship = Repository.getInstance().findShipById(shipid);
+                Driver driver = Repository.getInstance().findDriverById(driverid);
                 //Race race = Repository.getInstance().findRaceById(raceId);
                 
-                Participation participation = new Participation(id, corridor, ship);
+                Participation participation = new Participation(id, corridor, ship, driver);
                 participation.setDuration(duration);
                 participation.setRank(rank);
                 participation.setScore(score);
@@ -121,6 +125,7 @@ public class Participation_DAO extends SQL_DAO {
         Participation_DTO participationDTO = new Participation_DTO();
         participationDTO.setId(participation.getId());
         participationDTO.setShipId(participation.getShip().getId());
+        participationDTO.setParticipatingDriverId(participation.getParticipatingDriver().getId());
         participationDTO.setCorridor(participation.getCorridor());
         participationDTO.setDuration(participation.getDuration());
         participationDTO.setRank(participation.getRank());
@@ -149,11 +154,13 @@ public class Participation_DAO extends SQL_DAO {
                 int duration = rs.getInt("duration");
                 int corridor = rs.getInt("corridor");
                 int raceid = rs.getInt("raceid");
+                int driverid = rs.getInt("driverid");
                 
                 Ship ship = Repository.getInstance().findShipById(shipid);
+                Driver driver = Repository.getInstance().findDriverById(driverid);
                 //Race race = Repository.getInstance().findRaceById(raceid);
                 
-                Participation participation = new Participation(id, corridor, ship);
+                Participation participation = new Participation(id, corridor, ship, driver);
                 participation.setDuration(duration);
                 participation.setRank(rank);
                 participation.setScore(score);
