@@ -7,6 +7,7 @@ package lise.colval.regates.bll.model.competition;
 
 import java.util.ArrayList;
 import java.util.List;
+import lise.colval.regates.bll.model.scoring.EventScore;
 
 
 /**
@@ -23,6 +24,8 @@ public class Event {
     
     private List<Race> races;
     private Contest contest;
+    
+    private List<EventScore> scores;
     
     public Event() {}
     
@@ -42,6 +45,7 @@ public class Event {
         this.img = img;
         this.contest = contest;
         this.races = new ArrayList<>();
+        this.scores = new ArrayList<>();
     }
 
     public int getId() {

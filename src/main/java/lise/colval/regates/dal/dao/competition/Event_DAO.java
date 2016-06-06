@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
+import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.dal.Repository;
 import lise.colval.regates.dal.dao.SQL_DAO;
@@ -57,6 +58,7 @@ public class Event_DAO extends SQL_DAO {
                         event.addRace(race);
                     }
                 }
+               
             }
             
             
@@ -192,4 +194,5 @@ public class Event_DAO extends SQL_DAO {
         
         return event;
     }
+    
 }

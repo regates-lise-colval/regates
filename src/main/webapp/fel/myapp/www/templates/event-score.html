@@ -12,7 +12,7 @@
                 <th>Total Points</th>
             </tr>
 
-            <tr ng-repeat="participation in e.participations | orderBy:'-rank':true">
+            <tr ng-repeat="participation in e.participations | orderBy:'-ship.tag':true">
                 <td>{{participation.rank}}</td>
                 <td>{{participation.ship.tag}}</td>
                 <td>{{participation.participatingDriver.firstname + " " + participation.participatingDriver.lastname}}</td>
