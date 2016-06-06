@@ -75,7 +75,7 @@ angular.module('starter.controllers', [])
 
     var ctrl = this;
     ctrl.event;
-    ctrl.participations;
+    ctrl.scores;
 
     ctrl.loadEvent = function () {
         $http({
@@ -91,11 +91,11 @@ angular.module('starter.controllers', [])
 
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/regates/webresources/participations/event/' + $stateParams.eventId
+            url: 'http://localhost:8080/regates/webresources/escore/event/' + $stateParams.eventId
         }).then(function successCallback(response) {
 
-                ctrl.participations = response.data;
-                console.log(ctrl.participations);
+                ctrl.scores = response.data;
+                console.log(ctrl.scores);
 
 
             },
