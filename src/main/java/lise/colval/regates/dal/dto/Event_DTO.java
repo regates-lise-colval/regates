@@ -73,7 +73,7 @@ public class Event_DTO {
     }
 
     public void setContestId(int contestId) {
-        this.contestId = 1;
+        this.contestId = contestId;
     }
 
     public List<Integer> getRacesId() {

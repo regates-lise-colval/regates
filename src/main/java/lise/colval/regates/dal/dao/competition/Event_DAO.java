@@ -18,6 +18,7 @@ import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.dal.Repository;
 import lise.colval.regates.dal.dao.SQL_DAO;
+import lise.colval.regates.dal.dto.Contest_DTO;
 import lise.colval.regates.dal.dto.Event_DTO;
 
 /**
@@ -49,8 +50,8 @@ public class Event_DAO extends SQL_DAO {
                 String img = rs.getString("img");
                 int contestId = rs.getInt("contestid");
                 
-                //Contest contest = Repository.getInstance().findContestById(contestId);
-                event = new Event(id, city, category, date, img, new Contest(1));
+                Contest_DTO contestDTO = Repository.getInstance().findContestDTOById(contestId);
+                event = new Event(id, city, category, date, img, contestDTO);
                 
                 List<Race> races = Repository.getInstance().getAllRaces();
                 for(Race race : races) {
@@ -139,9 +140,55 @@ public class Event_DAO extends SQL_DAO {
                 String img = rs.getString("img");
                 int contestId = rs.getInt("contestid");
                 
-                Contest contest = Repository.getInstance().findContestById(contestId);
+                Contest_DTO contestDTO = Repository.getInstance().findContestDTOById(contestId);
                 
-                Event event = new Event(id, city, category, date, img, contest);
+                Event event = new Event(id, city, category, date, img, contestDTO);
+                
+                List<Race> races = Repository.getInstance().getAllRaces();
+                
+                for(Race race : races) {
+                    if(race.getEventDTO().getId() == event.getId()) {
+                        event.addRace(race);
+                    }
+                }
+                
+                events.add(event);
+            }
+            
+            stmt.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SQL_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        closeConnection();
+        return events;
+    }
+    
+    @Override
+    public List<Event> findEventsByContest(int contestId) {
+        List<Event> events;
+        events = new ArrayList<>();
+        
+        Statement stmt = null;
+     
+        try {
+            
+            stmt = connect().createStatement();   
+            String request = "SELECT * FROM EVENT WHERE CONTESTID = " + contestId;
+            ResultSet rs = stmt.executeQuery(request);
+            
+            while(rs.next()) {
+                int id = rs.getInt("id");
+                String city = rs.getString("city");
+                String category = rs.getString("category");
+                String date = rs.getString("date");
+                String img = rs.getString("img");
+                
+                Contest_DTO contestDTO = Repository.getInstance().findContestDTOById(contestId);
+                
+                Event event = new Event(id, city, category, date, img, contestDTO);
                 
                 List<Race> races = Repository.getInstance().getAllRaces();
                 
@@ -174,7 +221,7 @@ public class Event_DAO extends SQL_DAO {
         eventDTO.setCategory(event.getCategory());
         eventDTO.setDate(event.getDate());
         eventDTO.setImg(event.getImg());
-        eventDTO.setContestId(event.getContest().getId());
+        eventDTO.setContestId(event.getContestDTO().getId());
         eventDTO.setRacesId(event.getRaces());
         
         return eventDTO;
@@ -189,8 +236,8 @@ public class Event_DAO extends SQL_DAO {
         event.setCategory(eventDTO.getCategory());
         event.setDate(eventDTO.getDate());
         event.setImg(eventDTO.getImg());
-        Contest contest = Repository.getInstance().findContestById(eventDTO.getContestId());
-        event.setContest(contest);
+        Contest_DTO contestDTO = Repository.getInstance().findContestDTOById(eventDTO.getContestId());
+        event.setContestDTO(contestDTO);
         
         return event;
     }

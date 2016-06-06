@@ -111,6 +111,11 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
         return new Event_DAO(db_url, db_driver, db_user, db_password).createBeanEvent(eventDTO);
     }
     
+    @Override
+    public List<Event> findEventsByContest(int contestId) {
+        return new Event_DAO(db_url, db_driver, db_user, db_password).findEventsByContest(contestId);
+    }
+    
     // ----- CONTEST ----- // 
     
     @Override
@@ -127,6 +132,11 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     public Contest_DTO createContestDTO(Contest contest) {
         return new Contest_DAO(db_url, db_driver, db_user, db_password).createContestDTO(contest);
     } 
+    
+    @Override
+    public Contest_DTO findContestDTOById(int contestId) {
+        return new Contest_DAO(db_url, db_driver, db_user, db_password).findContestDTOById(contestId);
+    }
     
     // ----- RACE ----- //
 

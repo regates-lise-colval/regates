@@ -45,11 +45,13 @@ public interface I_DAO {
     public abstract List<Event> getAllEvents();
     public abstract Event_DTO createEventDTO(Event event);
     public abstract Event createBeanEvent(Event_DTO eventDTO);
+    public abstract List<Event> findEventsByContest(int contestId);
     
     // ----- CONTEST ----- //
     public abstract Contest findContestById(int contestId);
     public abstract List<Contest> getAllContests();
     public abstract Contest_DTO createContestDTO(Contest contest);
+    public abstract Contest_DTO findContestDTOById(int contestId);
     
     // ----- RACE ----- //
     public abstract Race findRaceById(int raceId);
@@ -66,5 +68,6 @@ public interface I_DAO {
     // ----- EventScore ----- //
     public abstract List<EventScore> getAllEventScores();
     public abstract List<EventScore> getScoreOfEvent(int eventid);
+
     
 }

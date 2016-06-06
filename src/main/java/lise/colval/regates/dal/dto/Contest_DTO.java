@@ -5,6 +5,7 @@
  */
 package lise.colval.regates.dal.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +22,9 @@ public class Contest_DTO {
     
     private List<Integer> eventsIds;
     
-    public Contest_DTO() {}
+    public Contest_DTO() {
+        this.eventsIds = new ArrayList<>();
+    }
 
     public String getCategory() {
         return category;

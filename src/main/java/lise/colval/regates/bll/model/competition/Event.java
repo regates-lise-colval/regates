@@ -8,6 +8,7 @@ package lise.colval.regates.bll.model.competition;
 import java.util.ArrayList;
 import java.util.List;
 import lise.colval.regates.bll.model.scoring.EventScore;
+import lise.colval.regates.dal.dto.Contest_DTO;
 
 
 /**
@@ -23,7 +24,7 @@ public class Event {
     private String img;
     
     private List<Race> races;
-    private Contest contest;
+    private Contest_DTO contestDTO;
     
     private List<EventScore> scores;
     
@@ -37,13 +38,13 @@ public class Event {
         this.img = img;
     }
     
-    public Event(int id, String city, String category, String date, String img, Contest contest) {
+    public Event(int id, String city, String category, String date, String img, Contest_DTO contestDTO) {
         this.id = id;
         this.city = city;
         this.category = category;
         this.date = date;
         this.img = img;
-        this.contest = contest;
+        this.contestDTO = contestDTO;
         this.races = new ArrayList<>();
         this.scores = new ArrayList<>();
     }
@@ -88,12 +89,12 @@ public class Event {
         this.img = img;
     }
 
-    public Contest getContest() {
-        return contest;
+    public Contest_DTO getContestDTO() {
+        return contestDTO;
     }
 
-    public void setContest(Contest contest) {
-        this.contest = contest;
+    public void setContestDTO(Contest_DTO contestDTO) {
+        this.contestDTO = contestDTO;
     }
 
     public List<Race> getRaces() {

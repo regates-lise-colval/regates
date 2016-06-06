@@ -12,10 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.validation.ReportAsSingleViolation;
 import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
+import lise.colval.regates.dal.Repository;
 import lise.colval.regates.dal.dao.SQL_DAO;
 import lise.colval.regates.dal.dto.Contest_DTO;
+import lise.colval.regates.dal.dto.Event_DTO;
 
 /**
  *
@@ -45,7 +48,9 @@ public class Contest_DAO extends SQL_DAO {
                 String title = rs.getString("title");
                 String img = rs.getString("img");
                 
-                contest = new Contest(id, year, category, title, img);
+                List<Event> events = Repository.getInstance().findEventsByContest(id);
+                
+                contest = new Contest(id, year, category, title, img, events);
             }
             
         } catch (SQLException ex) {
@@ -76,7 +81,9 @@ public class Contest_DAO extends SQL_DAO {
                 String title = rs.getString("title");
                 String img = rs.getString("img");
                 
-                Contest contest = new Contest(id, year, category, title, img);
+                List<Event> events = Repository.getInstance().findEventsByContest(id);
+                
+                Contest contest = new Contest(id, year, category, title, img, events);
                 contests.add(contest);
             }
             
@@ -89,6 +96,41 @@ public class Contest_DAO extends SQL_DAO {
         
         closeConnection();
         return contests;
+    }
+    
+    @Override
+    public Contest_DTO findContestDTOById(int contestId) {
+        Contest_DTO contestDTO = new Contest_DTO();
+        
+        Statement stmt = null;
+        
+        try {
+            
+            stmt = connect().createStatement();
+            String request = "SELECT * FROM CONTEST WHERE ID = " + contestId;
+            ResultSet rs = stmt.executeQuery(request);
+            
+            if(rs.next()) {
+                int year = rs.getInt("cyear");
+                String category = rs.getString("category");
+                String title = rs.getString("title");
+                String img = rs.getString("img");
+                
+                contestDTO.setId(contestId);
+                contestDTO.setCategory(category);
+                contestDTO.setTitle(title);
+                contestDTO.setYear(year);
+                contestDTO.setImg(img);
+              
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        closeConnection();
+        
+        return contestDTO;
     }
     
     @Override

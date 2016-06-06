@@ -29,8 +29,9 @@ public class ContestService {
     
     @GET
     @Path("/{id}")
-    public Contest findContestById(@PathParam("id") int id) {
-        return new AllContestsController().findContestById(id);
+    public Contest_DTO findContestById(@PathParam("id") int id) {
+        Contest contest = new AllContestsController().findContestById(id);
+        return Repository.getInstance().createContestDTO(contest);
     }
     
     @GET
