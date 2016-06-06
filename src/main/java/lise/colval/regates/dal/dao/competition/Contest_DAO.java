@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lise.colval.regates.bll.model.competition.Contest;
+import lise.colval.regates.bll.model.competition.Event;
 import lise.colval.regates.dal.dao.SQL_DAO;
 import lise.colval.regates.dal.dto.Contest_DTO;
 
@@ -92,6 +93,18 @@ public class Contest_DAO extends SQL_DAO {
     
     @Override
     public Contest_DTO createContestDTO(Contest contest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Contest_DTO contestDTO = new Contest_DTO();
+        
+        contestDTO.setId(contest.getId());
+        contestDTO.setCategory(contest.getCategory());
+        contestDTO.setImg(contest.getImg());
+        contestDTO.setTitle(contest.getTitle());
+        contestDTO.setYear(contest.getYear());
+        
+        for(Event event : contest.getEvents()) {
+            contestDTO.addEventId(event.getId());
+        }
+        
+        return contestDTO;
     }
 }

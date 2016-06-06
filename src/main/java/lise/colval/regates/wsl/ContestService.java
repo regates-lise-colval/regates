@@ -28,13 +28,13 @@ import lise.colval.regates.dal.dto.Contest_DTO;
 public class ContestService {
     
     @GET
-    @Path("{/id}")
-    public Contest getContest(@PathParam("id") int id) {
-        return new AllContestsController().getShip(id);
+    @Path("/{id}")
+    public Contest findContestById(@PathParam("id") int id) {
+        return new AllContestsController().findContestById(id);
     }
     
     @GET
-    public List<Contest_DTO> getAllShips() {
+    public List<Contest_DTO> getAllContests() {
         List<Contest> contests = new AllContestsController().getAllContests();
         List<Contest_DTO> contestsDTO = new ArrayList<>();
         for(Contest contest : contests) {

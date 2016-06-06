@@ -34,6 +34,7 @@ public class Contest {
         this.category = category;
         this.title = title;
         this.img = img;
+        events = new ArrayList<>();
     }
     
     public Contest(int id, int year, String category, String title, String img, List<Event> events) {

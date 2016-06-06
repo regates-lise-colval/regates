@@ -15,8 +15,8 @@ import lise.colval.regates.dal.Repository;
  */
 public class AllContestsController {
 
-    public Contest getShip(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Contest findContestById(int id) {
+        return Repository.getInstance().findContestById(id);
     }
 
     public List<Contest> getAllContests() {
