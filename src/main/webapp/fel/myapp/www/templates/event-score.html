@@ -1,30 +1,12 @@
+<ion-view ng-controller="EventScoreCtrl as e" ng-init="e.loadEvent()" view-title="Score: {{e.event.city + ' - ' + e.event.category}}">
 
-<ion-view view-title="Score: {{event.city + ' - ' + event.category}}">
+    <ion-content class="padding">
 
-  <ion-content class="padding">
+        <h1>Coucou</h1>
 
-    <table class="table table-striped">
-      <thead>
-        <tr style="background-color:#ef473a;">
-          <th>Position</th>
-          <th>#Ship</th>
-          <th>Driver</th>
-          <th>Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="ship in ships">
-          <td>{{ship.position}}</td>
-          <td>#{{ship.tag}}</td>
-          <td>{{ship.driver}}</td>
-          <td>{{ship.points}}</td>
-        </tr>
-      </tbody>
-    </table>
+        <a nav-direction="back" href="#/tab/events">
+            <button class="button button-outline button-assertive icon-left ion-chevron-left">Events</button>
+        </a>
 
-    <a nav-direction="back" href="#/tab/events">
-     <button class="button button-outline button-assertive icon-left ion-chevron-left">Events</button>
-    </a>
-
-  </ion-content>
+    </ion-content>
 </ion-view>

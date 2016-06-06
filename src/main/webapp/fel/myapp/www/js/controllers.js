@@ -71,13 +71,49 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('EventScoreCtrl', function ($scope, $stateParams, Events, Ships) {
+.controller('EventScoreCtrl', function ($scope, $stateParams, $http, Events, Ships) {
 
-    $scope.event = Events.get($stateParams.eventId);
-    $scope.ships = Ships.all();
-    $scope.remove = function (ships) {
-        Ships.remove(ships);
-    };
+    var ctrl = this;
+    ctrl.event;
+
+    ctrl.loadEvent = function () {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/regates/webresources/events/' + $stateParams.eventId
+        }).then(function successCallback(response) {
+
+                ctrl.event = response.data;
+                ctrl.event.races = [];
+                //console.log(ctrl.event);
+                for (var i = 0; i < ctrl.event.racesId.length; i++) {
+
+
+
+                    $http({
+                        method: 'GET',
+                        url: 'http://localhost:8080/regates/webresources/races/' + ctrl.event.racesId[i]
+                    }).then(function successCallback(response) {
+
+                            //ctrl.races.push(response.data);
+                            ctrl.event.races.push(response.data);
+                            console.log(ctrl.event.races[ctrl.i]);
+
+                            //ctrl.event.races[ctrl.i].participations = [];
+
+
+                            ctrl.i++;
+
+                            console.log(ctrl.event.races);
+
+                        },
+                        function errorCallback(response) {});
+                }
+
+
+            },
+            function errorCallback(response) {});
+    }
+
 })
 
 .controller('ShipsCtrl', function ($scope, Ships) {
