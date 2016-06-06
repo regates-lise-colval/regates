@@ -4,6 +4,23 @@
 
         <h1>Coucou</h1>
 
+        <table class="table table-bordered table-striped" style="margin-bottom:50px">
+            <tr style="font-size:16px;background-color:#ef473a;font-weight:bold">
+                <th>Position</th>
+                <th>#Ship</th>
+                <th>Main Driver</th>
+                <th>Total Points</th>
+            </tr>
+
+            <tr ng-repeat="participation in e.participations | orderBy:'-rank':true">
+                <td>{{participation.rank}}</td>
+                <td>{{participation.ship.tag}}</td>
+                <td>{{participation.participatingDriver.firstname + " " + participation.participatingDriver.lastname}}</td>
+                <td>{{participation.score}}</td>
+            </tr>
+
+        </table>
+
         <a nav-direction="back" href="#/tab/events">
             <button class="button button-outline button-assertive icon-left ion-chevron-left">Events</button>
         </a>

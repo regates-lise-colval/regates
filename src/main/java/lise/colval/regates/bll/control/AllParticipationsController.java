@@ -26,5 +26,9 @@ public class AllParticipationsController {
     public List<Participation> findParticipationsByRace(int raceId) {
         return Repository.getInstance().findParticipationsByRace(raceId);
     }
+
+    public List<Participation> findParticipationsByEvent(int eventId) {
+        return Repository.getInstance().findParticipationsByEvent(eventId);
+    }
     
 }

@@ -75,6 +75,7 @@ angular.module('starter.controllers', [])
 
     var ctrl = this;
     ctrl.event;
+    ctrl.participations;
 
     ctrl.loadEvent = function () {
         $http({
@@ -83,31 +84,18 @@ angular.module('starter.controllers', [])
         }).then(function successCallback(response) {
 
                 ctrl.event = response.data;
-                ctrl.event.races = [];
-                //console.log(ctrl.event);
-                for (var i = 0; i < ctrl.event.racesId.length; i++) {
 
 
+            },
+            function errorCallback(response) {});
 
-                    $http({
-                        method: 'GET',
-                        url: 'http://localhost:8080/regates/webresources/races/' + ctrl.event.racesId[i]
-                    }).then(function successCallback(response) {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/regates/webresources/participations/event/' + $stateParams.eventId
+        }).then(function successCallback(response) {
 
-                            //ctrl.races.push(response.data);
-                            ctrl.event.races.push(response.data);
-                            console.log(ctrl.event.races[ctrl.i]);
-
-                            //ctrl.event.races[ctrl.i].participations = [];
-
-
-                            ctrl.i++;
-
-                            console.log(ctrl.event.races);
-
-                        },
-                        function errorCallback(response) {});
-                }
+                ctrl.participations = response.data;
+                console.log(ctrl.participations);
 
 
             },

@@ -165,4 +165,9 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
         return new Participation_DAO(db_url, db_driver, db_user, db_password).findParticipationsByRace(raceId);
     }
     
+    @Override
+    public List<Participation> findParticipationsByEvent(int eventId) {
+        return new Participation_DAO(db_url, db_driver, db_user, db_password).findParticipationsByEvent(eventId);
+    }
+    
 }

@@ -56,4 +56,10 @@ public class ParticipationService {
         return participationsDTO;
     }
     
+    @GET
+    @Path("/event/{eventId}")
+    public List<Participation> findParticipationsByEvent(@PathParam("eventId") int eventId) {
+        return new AllParticipationsController().findParticipationsByEvent(eventId);
+    }
+    
 }
