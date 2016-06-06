@@ -12,6 +12,7 @@ import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.bll.model.participant.Ship;
+import lise.colval.regates.bll.model.scoring.EventScore;
 import lise.colval.regates.dal.dto.Contest_DTO;
 import lise.colval.regates.dal.dto.Driver_DTO;
 import lise.colval.regates.dal.dto.Event_DTO;
@@ -61,5 +62,9 @@ public interface I_DAO {
     public abstract Participation_DTO createParticipationDTO(Participation participation);
     public abstract List<Participation> findParticipationsByRace(int raceId);
     public abstract List<Participation> findParticipationsByEvent(int eventId);
+    
+    // ----- EventScore ----- //
+    public abstract List<EventScore> getAllEventScores();
+    public abstract List<EventScore> getScoreOfEvent(int eventid);
     
 }

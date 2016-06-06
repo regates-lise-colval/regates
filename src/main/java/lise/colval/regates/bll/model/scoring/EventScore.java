@@ -20,7 +20,7 @@ public class EventScore {
     
     public EventScore() {}
     
-    public EventScore(int id, int totalScore, int rank, Ship Ship) {
+    public EventScore(int id, int totalScore, int rank, Ship ship) {
         this.id = id;
         this.totalScore = totalScore;
         this.rank = rank;

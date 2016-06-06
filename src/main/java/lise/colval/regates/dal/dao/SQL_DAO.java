@@ -15,9 +15,11 @@ import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.bll.model.competition.Race;
 import lise.colval.regates.bll.model.participant.Driver;
 import lise.colval.regates.bll.model.participant.Ship;
+import lise.colval.regates.bll.model.scoring.EventScore;
 import lise.colval.regates.dal.dao.competition.Participation_DAO;
 import lise.colval.regates.dal.dao.competition.Race_DAO;
 import lise.colval.regates.dal.dao.participant.Driver_DAO;
+import lise.colval.regates.dal.dao.scoring.EventScore_DAO;
 import lise.colval.regates.dal.dto.Contest_DTO;
 import lise.colval.regates.dal.dto.Driver_DTO;
 import lise.colval.regates.dal.dto.Event_DTO;
@@ -168,6 +170,18 @@ public class SQL_DAO extends DataBase_DAO implements I_DAO {
     @Override
     public List<Participation> findParticipationsByEvent(int eventId) {
         return new Participation_DAO(db_url, db_driver, db_user, db_password).findParticipationsByEvent(eventId);
+    }
+    
+    // ----- EventScore ----- //
+    
+    @Override
+    public List<EventScore> getScoreOfEvent(int eventid) {
+        return new EventScore_DAO(db_url, db_driver, db_user, db_password).getScoreOfEvent(eventid);
+    }
+    
+    @Override
+    public List<EventScore> getAllEventScores() {
+        return new EventScore_DAO(db_url, db_driver, db_user, db_password).getAllEventScores();
     }
     
 }
