@@ -111,19 +111,29 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('ContestsCtrl', function ($scope, Contests) {
-    // With the new view caching in Ionic, Controllers are only called
-    // when they are recreated or on app start, instead of every page change.
-    // To listen for when this page is active (for example, to refresh data),
-    // listen for the $ionicView.enter event:
-    //
-    //$scope.$on('$ionicView.enter', function(e) {
-    //});
+.controller('ContestsCtrl', function ($scope, $http, Contests) {
+    var ctrl = this;
+    ctrl.contests;
 
-    $scope.contests = Contests.all();
-    $scope.remove = function (contests) {
-        Contests.remove(contests);
-    };
+    ctrl.loadContests = function () {
+
+        ctrl.getContests();
+        //Contests.set(ctrl.contests);
+
+    }
+
+    ctrl.getContests = function () {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/regates/webresources/contests'
+        }).then(function successCallback(response) {
+
+            ctrl.contests = response.data;
+            console.log(ctrl.contests);
+
+        }, function errorCallback(response) {});
+    }
+
 })
 
 .controller('AccountCtrl', function ($scope) {

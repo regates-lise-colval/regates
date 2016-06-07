@@ -1,11 +1,31 @@
-<ion-view view-title="Contests">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-image item-icon-right" ng-repeat="contest in contests" type="item-text-wrap" href="#/tab/contests">
-        <img ng-src="img/contests/{{contest.img}}"  style="margin-bottom:20px;">
-        <h2>{{contest.category}}</h2>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+<ion-view view-title="Contests" ng-controller="ContestsCtrl as c" ng-init="c.loadContests()">
+    <ion-content>
+
+        <ion-list>
+            <ion-item class="item-image" ng-repeat="contest in c.contests">
+                <div class="card">
+                    <div class="item">
+                        <h2 style="font-size:25px;">{{contest.category}}</h2>
+                    </div>
+                    <div>
+
+                        <img ng-src="img/contests/{{contest.img}}">
+
+                        <div class="row">
+                            <a class="col-25 col-offset-0 col-top" nav-direction="back" style="margin-left:15px;">
+                                <button class="button button-outline button-assertive icon-left ion-chevron-left">Infos</button>
+                            </a>
+                            <h2 class="col-50 col-offset-0 col-center" style="font-size:20px;">{{event.date}}</h2>
+                            <a class="col-25 col-offset-0 col-top" nav-direction="forward">
+                                <button class="button button-outline button-assertive icon-right ion-chevron-right">Score</button>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
 </ion-view>
