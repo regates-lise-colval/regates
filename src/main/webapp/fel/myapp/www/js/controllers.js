@@ -136,6 +136,36 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('ContestInfoCtrl', function ($scope, $stateParams, $http, Contests) {
+    var ctrl = this;
+    ctrl.contest;
+    ctrl.events;
+
+
+    ctrl.loadContest = function () {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/regates/webresources/contests/' + $stateParams.contestId
+        }).then(function successCallback(response) {
+
+                ctrl.contest = response.data;
+
+            },
+            function errorCallback(response) {});
+
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/regates/webresources/events/contest/' + $stateParams.contestId
+        }).then(function successCallback(response) {
+
+                ctrl.events = response.data;
+                console.log(ctrl.events);
+
+            },
+            function errorCallback(response) {});
+    }
+})
+
 .controller('AccountCtrl', function ($scope) {
     $scope.settings = {
         enableFriends: true

@@ -21,7 +21,8 @@ public class Repository {
     public static I_DAO getInstance() {
         
         if(db_dao == null) {
-            db_dao = new SQL_DAO("jdbc:derby://localhost:1527/regates", "org.apache.derby.jdbc.ClientDriver", "regates", "regates");
+            db_dao = new SQL_DAO("jdbc:derby://localhost:1527/regates", 
+                    "org.apache.derby.jdbc.ClientDriver", "regates", "regates");
         }
         return db_dao;
     }

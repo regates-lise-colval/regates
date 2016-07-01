@@ -49,6 +49,17 @@ public class Event {
         this.scores = new ArrayList<>();
     }
 
+    public Event(int id, String city, String category, String date, String img, Contest_DTO contestDTO, List<EventScore> scores) {
+        this.id = id;
+        this.city = city;
+        this.category = category;
+        this.date = date;
+        this.img = img;
+        this.contestDTO = contestDTO;
+        this.races = new ArrayList<>();
+        this.scores = new ArrayList<>(scores);
+    }
+    
     public int getId() {
         return id;
     }
@@ -103,6 +114,18 @@ public class Event {
     
     public void addRace(Race race) {
         this.races.add(race);
+    }
+
+    public List<EventScore> getScores() {
+        return scores;
+    }
+
+    public void setRaces(List<Race> races) {
+        this.races = races;
+    }
+
+    public void setScores(List<EventScore> scores) {
+        this.scores = scores;
     }
     
     @Override

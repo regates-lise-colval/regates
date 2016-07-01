@@ -16,6 +16,7 @@ import lise.colval.regates.bll.model.competition.Contest;
 import lise.colval.regates.bll.model.competition.Event;
 import lise.colval.regates.bll.model.competition.Participation;
 import lise.colval.regates.bll.model.competition.Race;
+import lise.colval.regates.bll.model.scoring.EventScore;
 import lise.colval.regates.dal.Repository;
 import lise.colval.regates.dal.dao.SQL_DAO;
 import lise.colval.regates.dal.dto.Contest_DTO;
@@ -187,10 +188,12 @@ public class Event_DAO extends SQL_DAO {
                 String img = rs.getString("img");
                 
                 Contest_DTO contestDTO = Repository.getInstance().findContestDTOById(contestId);
+                List<EventScore> scores = Repository.getInstance().getScoreOfEvent(id);
                 
-                Event event = new Event(id, city, category, date, img, contestDTO);
+                Event event = new Event(id, city, category, date, img, contestDTO, scores);
                 
                 List<Race> races = Repository.getInstance().getAllRaces();
+               
                 
                 for(Race race : races) {
                     if(race.getEventDTO().getId() == event.getId()) {

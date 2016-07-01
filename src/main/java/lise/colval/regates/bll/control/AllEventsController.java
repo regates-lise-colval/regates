@@ -23,5 +23,11 @@ public class AllEventsController {
     public List<Event> getAllEvents() {
         return Repository.getInstance().getAllEvents();
     }  
+
+    public List<Event> findEventsByContest(int contestId) {
+        return Repository.getInstance().findEventsByContest(contestId);                           
+    }
+
+    
     
 }

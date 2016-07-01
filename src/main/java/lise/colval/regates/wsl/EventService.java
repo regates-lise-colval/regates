@@ -43,5 +43,11 @@ public class EventService {
             eventsDTO.add(Repository.getInstance().createEventDTO(event));
         }
         return eventsDTO;
-    }   
+    }
+    
+    @GET
+    @Path("/contest/{contestId}")
+    public List<Event> findEventsByContest(@PathParam("contestId") int contestId) {
+        return new AllEventsController().findEventsByContest(contestId);
+    }
 }

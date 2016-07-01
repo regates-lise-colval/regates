@@ -86,6 +86,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'events.services', 'c
         }
     })
 
+    .state('tab.contest-info', {
+        url: '/contests/:contestId',
+        views: {
+            'tab-contests': {
+                templateUrl: 'templates/contest-info.html',
+                controller: 'ContestInfoCtrl'
+            }
+        }
+    })
+
 
     .state('tab.account', {
         url: '/account',

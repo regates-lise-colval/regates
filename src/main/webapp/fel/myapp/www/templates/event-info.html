@@ -22,23 +22,6 @@
             </ion-item>
         </div>
 
-
-        <!--
-
-        <h2 style="text-align:center;margin-bottom:20px;font-size:30px;">Participants</h2>
-
-        <ion-list>
-            <ion-item class="item item-thumbnail-left " ng-repeat="ship in ships ">
-                <img ng-src="img/ships/{{ship.img}} ">
-                <div style="margin-top:15px; ">
-                    <h2 style="font-size:20px; ">#{{ship.tag}}</h2>
-                    <h2 style="font-size:20px; ">{{ship.driver}}</h2>
-                </div>
-            </ion-item>
-        </ion-list>
-        
-        -->
-
         <h2 style="text-align:center;margin-bottom:20px;font-size:30px;">Races</h2>
 
         <ion-list ng-repeat="race in e.event.races | orderBy:'-name':true">

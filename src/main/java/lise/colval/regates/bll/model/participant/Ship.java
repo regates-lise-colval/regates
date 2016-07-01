@@ -23,16 +23,9 @@ public class Ship {
     private String category;
     
     private Driver_DTO mainDriver;
-    //private List<Driver> alLDrivers;
-    
+    private List<Driver> alLDrivers;
   
     public Ship() {}
-    
-    public Ship(int id, int tag, String category) {
-        this.id = id;
-        this.tag = tag;
-        this.category = category;
-    }
     
     public Ship(int id, int tag, String category, Driver_DTO mainDriver) {
         this.id = id;
